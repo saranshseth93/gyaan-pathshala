@@ -234,7 +234,7 @@ function App() {
         </div>
       </section>
 
-      {/* Hero Section */}
+      {/* Hero Section - final */}
       <section className="hero">
         <div className="container">
           <div className="hero-content">
