@@ -7,7 +7,7 @@
   "scripts": {
     "post-update-cmd": [
       "echo 'Deployment triggered by GitHub webhook.'",
-      "npm install --legacy-peer-deps",
+      "npm install",
       "npm run build",
       "rm -rf ../public_html/* || true",
       "cp -r dist/* ../public_html/"
