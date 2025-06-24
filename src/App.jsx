@@ -8,6 +8,7 @@ import carousel4 from "./assets/carousel4.jpg";
 import carousel5 from "./assets/carousel5.jpg";
 import carousel6 from "./assets/carousel6.jpg";
 import "./App.css";
+import "animate.css";
 
 function App() {
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
@@ -31,33 +32,63 @@ function App() {
   const carouselImages = [
     {
       src: carousel1,
-      alt: "Student learning with teacher",
-      caption: "One-on-one attention for better understanding",
+      alt: "Classroom learning",
+      caption: "Personalized Attention to every child",
+      title: "Experience Quality Learning",
+      subtitle: "at Gyaan Pathshala",
+      description:
+        "Join hundreds of students who have transformed their academic journey with our personalized approach to learning.",
+      ctaText: "Start Your Child's Success Story",
     },
     {
       src: carousel2,
-      alt: "Home tuition environment",
-      caption: "Comfortable home-like learning environment",
+      alt: "Teacher helping student",
+      caption: "Expert Faculty with 12+ Years of Experience",
+      title: "Expert Teachers, Proven Results",
+      subtitle: "Guiding Every Step",
+      description:
+        "Our experienced faculty ensures every child gets the support they need to excel.",
+      ctaText: "Launch Your Child's Path to Achievement",
     },
     {
       src: carousel3,
-      alt: "Group learning session",
-      caption: "Small batch sizes for personalized learning",
+      alt: "Student group activity",
+      caption: "Interactive Learning with Phonics",
+      title: "Learning Beyond Books",
+      subtitle: "Fun & Interactive Sessions",
+      description:
+        "Engage in activities that make learning enjoyable and memorable.",
+      ctaText: "Set Your Child on the Road to Success",
     },
     {
       src: carousel4,
-      alt: "Teacher helping student",
-      caption: "Expert guidance from experienced teachers",
+      alt: "Creative classroom activities",
+      caption: "Creative Exploration for the child",
+      title: "Unleash Creativity in Every Child",
+      subtitle: "Hands-On Learning Experiences",
+      description:
+        "Our curriculum encourages creativity and critical thinking through engaging, hands-on activities.",
+      ctaText: "Ignite Your Child's Success Story",
     },
     {
       src: carousel5,
-      alt: "Interactive learning",
-      caption: "Interactive and engaging teaching methods",
+      alt: "Celebrating student achievements",
+      caption: "Celebrating Success",
+      title: "Recognizing Every Achievement",
+      subtitle: "Motivation Through Celebration",
+      description:
+        "We celebrate every milestone, big or small, to keep students motivated and confident.",
+      ctaText: "Begin Your Child's Journey to Success",
     },
     {
       src: carousel6,
-      alt: "Student success",
-      caption: "Building confidence and academic excellence",
+      alt: "Safe and friendly environment",
+      caption: "Safe & Supportive Environment",
+      title: "A Safe Place to Grow and Learn",
+      subtitle: "Supportive Environment for All",
+      description:
+        "Our safe and nurturing environment ensures every child feels valued and supported.",
+      ctaText: "Open the Door to Your Child's Success",
     },
   ];
 
@@ -86,6 +117,55 @@ function App() {
       role: "Parent of Class 5 Student",
       content:
         "Bina ma'am's experience shows in her teaching. My child's performance has improved significantly.",
+      rating: 5,
+    },
+    {
+      name: "Sonal Desai",
+      role: "Parent of Class 2 Student",
+      content:
+        "The teachers are patient and truly care about each child. My son looks forward to every class!",
+      rating: 5,
+    },
+    {
+      name: "Amit Trivedi",
+      role: "Parent of Nursery Student",
+      content:
+        "We noticed a big difference in our daughter's social and academic skills within a few months. Highly recommended!",
+      rating: 5,
+    },
+    {
+      name: "Neha Joshi",
+      role: "Parent of Class 6 Student",
+      content:
+        "The small batch size ensures my child gets the attention she needs. The progress reports are very helpful.",
+      rating: 4,
+    },
+    {
+      name: "Vikram Shah",
+      role: "Parent of Class 4 Student",
+      content:
+        "Gyaan Pathshala's approach is holistic. My son enjoys learning and has become much more confident.",
+      rating: 5,
+    },
+    {
+      name: "Rupal Mehta",
+      role: "Parent of LKG Student",
+      content:
+        "The environment is safe and nurturing. My child settled in quickly and loves her teachers!",
+      rating: 5,
+    },
+    {
+      name: "Deepak Soni",
+      role: "Parent of Class 7 Student",
+      content:
+        "We are grateful for the personal attention and regular updates. My daughter's grades have improved a lot.",
+      rating: 4,
+    },
+    {
+      name: "Anjali Bhatt",
+      role: "Parent of Class 1 Student",
+      content:
+        "The creative activities and interactive sessions keep my child engaged and excited to learn.",
       rating: 5,
     },
   ];
@@ -197,22 +277,18 @@ function App() {
                 />
                 <div className="carousel-overlay-clean">
                   <div className="carousel-content-clean">
-                    <h1 className="carousel-title-clean">
-                      Experience Quality Learning
-                    </h1>
+                    <h1 className="carousel-title-clean">{image.title}</h1>
                     <h2 className="carousel-subtitle-clean">
-                      at Gyaan Pathshala
+                      {image.subtitle}
                     </h2>
                     <p className="carousel-description-clean">
-                      Join hundreds of students who have transformed their
-                      academic journey with our personalized approach to
-                      learning.
+                      {image.description}
                     </p>
                     <button
                       onClick={() => scrollToSection("contact")}
                       className="carousel-cta-clean"
                     >
-                      Start Your Child's Success Story
+                      {image.ctaText}
                     </button>
                   </div>
                   <div className="carousel-caption-clean">{image.caption}</div>
@@ -243,8 +319,6 @@ function App() {
               alt="Gyaan Pathshala"
               className="hero-logo"
             />
-            <h1 className="hero-title">Gyaan Pathshala</h1>
-            <p className="hero-subtitle">Learn Better, Achieve More</p>
 
             <h2 className="hero-heading">Let's Study Together!</h2>
             <p className="hero-description">
@@ -268,20 +342,65 @@ function App() {
               </button>
             </div>
 
-            <div className="experience-badge">🏆 12+ Years Experience!</div>
+            {/* Animated Experience Badge */}
+            <div className="experience-badge animate__animated animate__infinite animate__pulse">
+              🏆 12+ Years Experience!
+            </div>
           </div>
 
           <div className="subjects-overview">
             <h3 className="subjects-title">
-              🎓 Coaching From Nursery to Class 7
+              📚 Coaching From Nursery to Class 7
             </h3>
             <div className="subjects-grid">
-              <span className="subject-tag">English</span>
-              <span className="subject-tag">Mathematics</span>
-              <span className="subject-tag">Science</span>
-              <span className="subject-tag">Social Studies</span>
-              <span className="subject-tag">Hindi</span>
-              <span className="subject-tag">Environmental Studies</span>
+              <span className="subject-tag">
+                <img
+                  src="/src/assets/subjects/english.png"
+                  className="subject-icons"
+                  alt="English Icon"
+                />
+                English
+              </span>
+              <span className="subject-tag">
+                <img
+                  src="/src/assets/subjects/maths.png"
+                  className="subject-icons"
+                  alt="Maths Icon"
+                />
+                Mathematics
+              </span>
+              <span className="subject-tag">
+                <img
+                  src="/src/assets/subjects/maths.png"
+                  className="subject-icons"
+                  alt="Maths Icon"
+                />
+                Science
+              </span>
+              <span className="subject-tag">
+                <img
+                  src="/src/assets/subjects/ss.png"
+                  className="subject-icons"
+                  alt="Social Studies Icon"
+                />
+                Social Studies
+              </span>
+              <span className="subject-tag">
+                <img
+                  src="/src/assets/subjects/hindi.png"
+                  className="subject-icons"
+                  alt="Hindi Icon"
+                />
+                Hindi
+              </span>
+              <span className="subject-tag">
+                <img
+                  src="/src/assets/subjects/es.png"
+                  className="subject-icons"
+                  alt="Environmental Studies Icon"
+                />
+                Environmental Studies
+              </span>
             </div>
             <p className="subjects-note">All Subjects Covered</p>
             <div className="subjects-features">
@@ -332,33 +451,57 @@ function App() {
 
           <div className="age-groups">
             <div className="age-group">
+              <img
+                src="/src/assets/standard-images/hand-print.png"
+                className="age-group-images"
+                alt="Nursery image"
+              />
               <h4>🧸 Nursery</h4>
-              <p className="age-fees">₹300-400/month</p>
               <p>Play-based learning</p>
             </div>
             <div className="age-group">
+              <img
+                src="/src/assets/standard-images/kindergarten.png"
+                className="age-group-images"
+                alt="LKG image"
+              />
               <h4>📚 LKG</h4>
-              <p className="age-fees">₹400-500/month</p>
               <p>Basic concepts & skills</p>
             </div>
             <div className="age-group">
+              <img
+                src="/src/assets/standard-images/kid.png"
+                className="age-group-images"
+                alt="UKG image"
+              />
               <h4>✏️ UKG</h4>
-              <p className="age-fees">₹500-600/month</p>
               <p>School readiness</p>
             </div>
             <div className="age-group">
+              <img
+                src="/src/assets/standard-images/school.png"
+                className="age-group-images"
+                alt="Class 1-2 image"
+              />
               <h4>📖 Class 1-2</h4>
-              <p className="age-fees">₹600-800/month</p>
               <p>Foundation building</p>
             </div>
             <div className="age-group">
+              <img
+                src="/src/assets/standard-images/elementary.png"
+                className="age-group-images"
+                alt="Class 3-5 image"
+              />
               <h4>🎓 Class 3-5</h4>
-              <p className="age-fees">₹800-1000/month</p>
               <p>Skill development</p>
             </div>
             <div className="age-group">
+              <img
+                src="/src/assets/standard-images/school-bag.png"
+                className="age-group-images"
+                alt="Class 6-7 image"
+              />
               <h4>🏆 Class 6-7</h4>
-              <p className="age-fees">₹1000-1200/month</p>
               <p>Advanced concepts</p>
             </div>
           </div>
@@ -525,7 +668,7 @@ function App() {
       {/* Testimonials */}
       <section className="testimonials">
         <div className="container">
-          <h2 className="section-title">What Parents Say</h2>
+          <h2 className="section-title dark-background">What Parents Say</h2>
           <div className="testimonial-container">
             <div className="testimonial-content">
               <div className="stars">
@@ -601,8 +744,8 @@ function App() {
       {/* Contact Section */}
       <section id="contact" className="contact">
         <div className="container">
-          <h2 className="section-title get-in-touch">Get In Touch</h2>
-          <p className="section-description get-in-touch">
+          <h2 className="section-title dark-background">Get In Touch</h2>
+          <p className="section-description dark-background">
             Ready to start your child's learning journey? Contact us today!
           </p>
 
@@ -663,12 +806,12 @@ function App() {
                 Give your child the best start in their educational journey.
                 Contact us today!
               </p>
-              <button
-                onClick={() => scrollToSection("contact")}
+              <a
+                href="https://wa.me/+919998810310/?text='Hi! I want to inquire about tuition with Gyaan Pathshala. What is the best time to call you?'"
                 className="cta-button"
               >
                 ⭐ JOIN NOW!
-              </button>
+              </a>
               <div className="cta-features">
                 <span className="cta-tag">⚡ Quick Enrollment</span>
                 <span className="cta-tag">🛡️ Safe Environment</span>
@@ -728,13 +871,13 @@ function App() {
       </footer>
 
       {/* Floating Action Button */}
-      <button
-        onClick={() => scrollToSection("contact")}
+      <a
+        href="https://wa.me/+919998810310/?text='Hi! I want to inquire about tuition with Gyaan Pathshala. What is the best time to call you?'"
         className="fab"
         title="Contact Us"
       >
-        💬
-      </button>
+        <img src="/src/assets/whatsapp.png" width="35px" />
+      </a>
     </div>
   );
 }
