@@ -3,7 +3,7 @@ name: Build and Deploy to Hostinger
 on:
   push:
     branches:
-      - main # Change if your default branch is different
+      - main
 
 jobs:
   build-and-deploy:
@@ -17,18 +17,24 @@ jobs:
         uses: actions/setup-node@v4
         with:
           node-version: 18
+          cache: "npm"
 
       - name: Install dependencies
-        run: npm install --legacy-peer-deps
+        run: npm ci --legacy-peer-deps
 
       - name: Build project
         run: npm run build
 
+      - name: List build directory
+        run: ls -la ./dist/
+
       - name: Deploy to Hostinger via FTP
-        uses: SamKirkland/FTP-Deploy-Action@v4.3.4
+        uses: SamKirkland/FTP-Deploy-Action@v4.3.5
         with:
           server: ${{ secrets.FTP_HOST }}
           username: ${{ secrets.FTP_USERNAME }}
           password: ${{ secrets.FTP_PASSWORD }}
           local-dir: ./dist/
-          server-dir: public_html/
+          server-dir: /public_html/
+          protocol: ftp
+          port: 21
