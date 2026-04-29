@@ -8,19 +8,10 @@ import carousel4 from "./assets/carousel4.jpg";
 import carousel5 from "./assets/carousel5.jpg";
 import carousel6 from "./assets/carousel6.jpg";
 import "./App.css";
-import "animate.css";
 
 function App() {
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
-  const [activeTestimonial, setActiveTestimonial] = useState(0);
   const [activeCarouselSlide, setActiveCarouselSlide] = useState(0);
-
-  useEffect(() => {
-    const interval = setInterval(() => {
-      setActiveTestimonial((prev) => (prev + 1) % 3);
-    }, 5000);
-    return () => clearInterval(interval);
-  }, []);
 
   useEffect(() => {
     const carouselInterval = setInterval(() => {
@@ -340,7 +331,7 @@ function App() {
             </div>
 
             {/* Animated Experience Badge */}
-            <div className="experience-badge animate__animated animate__infinite animate__pulse">
+            <div className="experience-badge">
               🏆 12+ Years Experience!
             </div>
           </div>

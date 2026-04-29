@@ -1147,3 +1147,17 @@ img {
 @media (max-width: 768px) {
   .fab { display: none; }
 }
+
+/* ===== ANIMATIONS ===== */
+@keyframes gentle-pulse {
+  0%, 100% { transform: scale(1); }
+  50% { transform: scale(1.03); }
+}
+
+.experience-badge {
+  animation: gentle-pulse 3s ease-in-out infinite;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .experience-badge { animation: none; }
+}
