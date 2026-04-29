@@ -7,6 +7,19 @@ import carousel3 from "./assets/carousel3.jpg";
 import carousel4 from "./assets/carousel4.jpg";
 import carousel5 from "./assets/carousel5.jpg";
 import carousel6 from "./assets/carousel6.jpg";
+import whatsappIcon from "./assets/whatsapp.png";
+import englishIcon from "./assets/subjects/english.png";
+import mathsIcon from "./assets/subjects/maths.png";
+import scienceIcon from "./assets/subjects/science.png";
+import ssIcon from "./assets/subjects/ss.png";
+import hindiIcon from "./assets/subjects/hindi.png";
+import esIcon from "./assets/subjects/es.png";
+import handPrintImg from "./assets/standard-images/hand-print.png";
+import kindergartenImg from "./assets/standard-images/kindergarten.png";
+import kidImg from "./assets/standard-images/kid.png";
+import schoolImg from "./assets/standard-images/school.png";
+import elementaryImg from "./assets/standard-images/elementary.png";
+import schoolBagImg from "./assets/standard-images/school-bag.png";
 import "./App.css";
 
 function App() {
@@ -168,7 +181,6 @@ function App() {
         <div className="nav-container">
           <div className="nav-brand">
             <img src={logoImage} alt="Gyaan Pathshala Logo" className="nav-logo" />
-            <span className="nav-tagline">જ્ઞાન પાઠશાળા</span>
           </div>
 
           <div className="nav-menu">
@@ -250,7 +262,7 @@ function App() {
       </nav>
 
       {/* Hero Carousel Section */}
-      <section className="hero-carousel">
+      <section className="hero-carousel" aria-label="Image carousel showcasing Gyaan Pathshala">
         <div className="carousel-wrapper-fullwidth">
           <div
             className="carousel-track"
@@ -292,6 +304,7 @@ function App() {
               className={`carousel-dot-clean ${
                 index === activeCarouselSlide ? "active" : ""
               }`}
+              aria-label={`Go to slide ${index + 1}`}
               onClick={() => setActiveCarouselSlide(index)}
             />
           ))}
@@ -342,51 +355,27 @@ function App() {
             </h3>
             <div className="subjects-grid">
               <span className="subject-tag">
-                <img
-                  src="/src/assets/subjects/english.png"
-                  className="subject-icons"
-                  alt="English Icon"
-                />
+                <img src={englishIcon} className="subject-icons" alt="English Icon" />
                 English
               </span>
               <span className="subject-tag">
-                <img
-                  src="/src/assets/subjects/maths.png"
-                  className="subject-icons"
-                  alt="Maths Icon"
-                />
+                <img src={mathsIcon} className="subject-icons" alt="Maths Icon" />
                 Mathematics
               </span>
               <span className="subject-tag">
-                <img
-                  src="/src/assets/subjects/maths.png"
-                  className="subject-icons"
-                  alt="Maths Icon"
-                />
+                <img src={scienceIcon} className="subject-icons" alt="Science Icon" />
                 Science
               </span>
               <span className="subject-tag">
-                <img
-                  src="/src/assets/subjects/ss.png"
-                  className="subject-icons"
-                  alt="Social Studies Icon"
-                />
+                <img src={ssIcon} className="subject-icons" alt="Social Studies Icon" />
                 Social Studies
               </span>
               <span className="subject-tag">
-                <img
-                  src="/src/assets/subjects/hindi.png"
-                  className="subject-icons"
-                  alt="Hindi Icon"
-                />
+                <img src={hindiIcon} className="subject-icons" alt="Hindi Icon" />
                 Hindi
               </span>
               <span className="subject-tag">
-                <img
-                  src="/src/assets/subjects/es.png"
-                  className="subject-icons"
-                  alt="Environmental Studies Icon"
-                />
+                <img src={esIcon} className="subject-icons" alt="Environmental Studies Icon" />
                 Environmental Studies
               </span>
             </div>
@@ -439,56 +428,32 @@ function App() {
 
           <div className="age-groups">
             <div className="age-group">
-              <img
-                src="/src/assets/standard-images/hand-print.png"
-                className="age-group-images"
-                alt="Nursery image"
-              />
+              <img src={handPrintImg} className="age-group-images" alt="Nursery image" />
               <h4>🧸 Nursery</h4>
               <p>Play-based learning</p>
             </div>
             <div className="age-group">
-              <img
-                src="/src/assets/standard-images/kindergarten.png"
-                className="age-group-images"
-                alt="LKG image"
-              />
+              <img src={kindergartenImg} className="age-group-images" alt="LKG image" />
               <h4>📚 LKG</h4>
               <p>Basic concepts & skills</p>
             </div>
             <div className="age-group">
-              <img
-                src="/src/assets/standard-images/kid.png"
-                className="age-group-images"
-                alt="UKG image"
-              />
+              <img src={kidImg} className="age-group-images" alt="UKG image" />
               <h4>✏️ UKG</h4>
               <p>School readiness</p>
             </div>
             <div className="age-group">
-              <img
-                src="/src/assets/standard-images/school.png"
-                className="age-group-images"
-                alt="Class 1-2 image"
-              />
+              <img src={schoolImg} className="age-group-images" alt="Class 1-2 image" />
               <h4>📖 Class 1-2</h4>
               <p>Foundation building</p>
             </div>
             <div className="age-group">
-              <img
-                src="/src/assets/standard-images/elementary.png"
-                className="age-group-images"
-                alt="Class 3-5 image"
-              />
+              <img src={elementaryImg} className="age-group-images" alt="Class 3-5 image" />
               <h4>🎓 Class 3-5</h4>
               <p>Skill development</p>
             </div>
             <div className="age-group">
-              <img
-                src="/src/assets/standard-images/school-bag.png"
-                className="age-group-images"
-                alt="Class 6-7 image"
-              />
+              <img src={schoolBagImg} className="age-group-images" alt="Class 6-7 image" />
               <h4>🏆 Class 6-7</h4>
               <p>Advanced concepts</p>
             </div>
@@ -742,7 +707,7 @@ function App() {
                 href="https://wa.me/+919998810310/?text='Hi! I want to inquire about tuition with Gyaan Pathshala. What is the best time to call you?'"
                 className="contact-btn-whatsapp"
               >
-                <img src="/src/assets/whatsapp.png" width="24" height="24" alt="" />
+                <img src={whatsappIcon} width="24" height="24" alt="" />
                 WhatsApp Us
               </a>
               <a href="tel:+919998810310" className="contact-btn-phone">
@@ -828,7 +793,7 @@ function App() {
         className="fab"
         title="Contact Us"
       >
-        <img src="/src/assets/whatsapp.png" width="35px" />
+        <img src={whatsappIcon} width="35px" />
       </a>
     </div>
   );
