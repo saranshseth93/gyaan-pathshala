@@ -25,6 +25,13 @@ import "./App.css";
 function App() {
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
   const [activeCarouselSlide, setActiveCarouselSlide] = useState(0);
+  const [scrolled, setScrolled] = useState(false);
+
+  useEffect(() => {
+    const handleScroll = () => setScrolled(window.scrollY > 80);
+    window.addEventListener("scroll", handleScroll, { passive: true });
+    return () => window.removeEventListener("scroll", handleScroll);
+  }, []);
 
   useEffect(() => {
     const carouselInterval = setInterval(() => {
@@ -123,7 +130,7 @@ function App() {
   return (
     <div className="app">
       {/* Navigation */}
-      <nav className="navbar">
+      <nav className={`navbar ${scrolled ? "navbar-scrolled" : ""}`}>
         <div className="nav-container">
           <div className="nav-brand">
             <img src={logoImage} alt="Gyaan Pathshala Logo" className="nav-logo" />
@@ -228,10 +235,7 @@ function App() {
         {/* Hero bar */}
         <div className="carousel-bottom">
           <div className="carousel-bottom-inner">
-            <div className="carousel-caption-group">
-              <p className="carousel-caption-label">Gyaan Pathshala</p>
-              <p className="carousel-caption">{carouselImages[activeCarouselSlide].caption}</p>
-            </div>
+            <p className="carousel-caption">{carouselImages[activeCarouselSlide].caption}</p>
             <div className="carousel-controls">
               <div className="carousel-dots">
                 {carouselImages.map((_, index) => (

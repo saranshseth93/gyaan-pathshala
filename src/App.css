@@ -129,8 +129,13 @@ img {
   background: oklch(0.97 0.01 80 / 0.95);
   backdrop-filter: blur(12px);
   z-index: 100;
-  padding: var(--space-sm) 0;
+  padding: var(--space-md) 0;
   border-bottom: 1px solid oklch(0.90 0.02 70);
+  transition: padding var(--duration-fast) var(--ease-out);
+}
+
+.navbar-scrolled {
+  padding: var(--space-xs) 0;
 }
 
 .nav-container {
@@ -148,7 +153,15 @@ img {
   gap: var(--space-sm);
 }
 
-.nav-logo { height: 36px; width: auto; }
+.nav-logo {
+  height: 48px;
+  width: auto;
+  transition: height var(--duration-fast) var(--ease-out);
+}
+
+.navbar-scrolled .nav-logo {
+  height: 32px;
+}
 
 .nav-menu { display: flex; gap: var(--space-lg); }
 
@@ -226,7 +239,7 @@ img {
   position: relative;
   width: 100vw;
   margin-left: calc(-50vw + 50%);
-  margin-top: 52px; /* clear fixed nav */
+  margin-top: 72px; /* clear fixed nav */
 }
 
 .carousel-wrapper-fullwidth {
@@ -270,22 +283,10 @@ img {
   gap: var(--space-lg);
 }
 
-.carousel-caption-group {
-  flex: 1;
-}
-
-.carousel-caption-label {
-  font-family: var(--font-display);
-  font-size: var(--text-xl);
-  font-weight: 800;
-  line-height: 1.2;
-  margin-bottom: 2px;
-}
-
 .carousel-caption {
-  font-size: var(--text-sm);
-  opacity: 0.88;
-  font-weight: 400;
+  font-size: var(--text-base);
+  font-weight: 600;
+  flex: 1;
 }
 
 .carousel-controls {
