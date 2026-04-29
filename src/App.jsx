@@ -225,26 +225,31 @@ function App() {
             ))}
           </div>
         </div>
-        {/* Bottom bar: caption + dots + CTA */}
+        {/* Hero bar */}
         <div className="carousel-bottom">
-          <p className="carousel-caption">{carouselImages[activeCarouselSlide].caption}</p>
-          <div className="carousel-controls">
-            <div className="carousel-dots">
-              {carouselImages.map((_, index) => (
-                <button
-                  key={index}
-                  className={`carousel-dot ${index === activeCarouselSlide ? "active" : ""}`}
-                  aria-label={`Go to slide ${index + 1}`}
-                  onClick={() => setActiveCarouselSlide(index)}
-                />
-              ))}
+          <div className="carousel-bottom-inner">
+            <div className="carousel-caption-group">
+              <p className="carousel-caption-label">Gyaan Pathshala</p>
+              <p className="carousel-caption">{carouselImages[activeCarouselSlide].caption}</p>
             </div>
-            <a
-              href="https://wa.me/+919998810310/?text='Hi! I want to inquire about tuition with Gyaan Pathshala. What is the best time to call you?'"
-              className="carousel-cta"
-            >
-              Enquire Now
-            </a>
+            <div className="carousel-controls">
+              <div className="carousel-dots">
+                {carouselImages.map((_, index) => (
+                  <button
+                    key={index}
+                    className={`carousel-dot ${index === activeCarouselSlide ? "active" : ""}`}
+                    aria-label={`Go to slide ${index + 1}`}
+                    onClick={() => setActiveCarouselSlide(index)}
+                  />
+                ))}
+              </div>
+              <a
+                href="https://wa.me/+919998810310/?text='Hi! I want to inquire about tuition with Gyaan Pathshala. What is the best time to call you?'"
+                className="carousel-cta"
+              >
+                Enquire Now
+              </a>
+            </div>
           </div>
         </div>
       </section>

@@ -226,6 +226,7 @@ img {
   position: relative;
   width: 100vw;
   margin-left: calc(-50vw + 50%);
+  margin-top: 52px; /* clear fixed nav */
 }
 
 .carousel-wrapper-fullwidth {
@@ -253,22 +254,38 @@ img {
   object-fit: cover;
 }
 
-/* Bottom bar — sits below image, not on top */
+/* Hero bar — below image */
 .carousel-bottom {
-  background: var(--color-charcoal);
+  background: var(--color-terracotta);
   color: var(--color-white-warm);
-  padding: var(--space-md) var(--space-lg);
+  padding: var(--space-lg) var(--space-lg);
+}
+
+.carousel-bottom-inner {
+  max-width: 1100px;
+  margin: 0 auto;
   display: flex;
   align-items: center;
   justify-content: space-between;
   gap: var(--space-lg);
 }
 
+.carousel-caption-group {
+  flex: 1;
+}
+
+.carousel-caption-label {
+  font-family: var(--font-display);
+  font-size: var(--text-xl);
+  font-weight: 800;
+  line-height: 1.2;
+  margin-bottom: 2px;
+}
+
 .carousel-caption {
   font-size: var(--text-sm);
-  font-weight: 500;
-  opacity: 0.85;
-  flex: 1;
+  opacity: 0.88;
+  font-weight: 400;
 }
 
 .carousel-controls {
@@ -289,11 +306,10 @@ img {
   height: 8px;
   border-radius: var(--radius-full);
   border: none;
-  background: oklch(0.99 0.005 80 / 0.3);
+  background: oklch(0.99 0.005 80 / 0.35);
   cursor: pointer;
   transition: all var(--duration-fast) var(--ease-out);
   padding: 0;
-  /* Accessible touch target via padding on parent */
 }
 .carousel-dot.active {
   background: var(--color-white-warm);
@@ -301,30 +317,33 @@ img {
 }
 
 .carousel-cta {
-  background: var(--color-terracotta);
-  color: var(--color-white-warm);
-  padding: 10px 24px;
+  background: var(--color-white-warm);
+  color: var(--color-terracotta-dark);
+  padding: 12px 28px;
   border-radius: var(--radius-full);
   font-size: var(--text-sm);
   font-weight: 700;
   font-family: var(--font-display);
   text-decoration: none;
-  transition: background var(--duration-fast) var(--ease-out);
+  transition: background var(--duration-fast) var(--ease-out),
+              transform var(--duration-fast) var(--ease-out);
   white-space: nowrap;
 }
 .carousel-cta:hover {
-  background: var(--color-terracotta-dark);
+  background: var(--color-white-warm);
+  transform: translateY(-1px);
 }
 
 @media (max-width: 768px) {
   .carousel-wrapper-fullwidth { height: 50vh; max-height: 400px; }
-  .carousel-bottom {
+  .carousel-bottom { padding: var(--space-md); }
+  .carousel-bottom-inner {
     flex-direction: column;
     gap: var(--space-sm);
-    padding: var(--space-sm) var(--space-md);
     text-align: center;
   }
   .carousel-controls { width: 100%; justify-content: space-between; }
+  .carousel-caption-label { font-size: var(--text-lg); }
   .carousel-caption { font-size: var(--text-xs); }
 }
 
