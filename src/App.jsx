@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from "react";
+import React, { useState, useEffect, useRef } from "react";
 import { useLanguage } from "./i18n/LanguageContext";
 import logoImage from "./assets/logo.svg";
 import logoHorizontal from "./assets/logo-horizontal.svg";
@@ -28,6 +28,17 @@ function App() {
   const [activeCarouselSlide, setActiveCarouselSlide] = useState(0);
   const [scrolled, setScrolled] = useState(false);
   const { language, setLanguage, t } = useLanguage();
+  const testimonialRef = useRef(null);
+
+  const scrollTestimonials = (direction) => {
+    const el = testimonialRef.current;
+    if (!el) return;
+    const scrollAmount = 320;
+    el.scrollBy({
+      left: direction === "next" ? scrollAmount : -scrollAmount,
+      behavior: "smooth",
+    });
+  };
 
   useEffect(() => {
     const handleScroll = () => setScrolled(window.scrollY > 80);
@@ -62,7 +73,11 @@ function App() {
       <nav className={`navbar ${scrolled ? "navbar-scrolled" : ""}`}>
         <div className="nav-container">
           <div className="nav-brand">
-            <img src={logoImage} alt="Gyaan Pathshala Logo" className="nav-logo" />
+            <img
+              src={logoImage}
+              alt="Gyaan Pathshala Logo"
+              className="nav-logo"
+            />
           </div>
 
           <div className="nav-menu">
@@ -93,9 +108,24 @@ function App() {
           </div>
 
           <div className="lang-switcher">
-            <button onClick={() => setLanguage("en")} className={language === "en" ? "lang-active" : ""}>EN</button>
-            <button onClick={() => setLanguage("hi")} className={language === "hi" ? "lang-active" : ""}>हिं</button>
-            <button onClick={() => setLanguage("gu")} className={language === "gu" ? "lang-active" : ""}>ગુ</button>
+            <button
+              onClick={() => setLanguage("en")}
+              className={language === "en" ? "lang-active" : ""}
+            >
+              EN
+            </button>
+            <button
+              onClick={() => setLanguage("hi")}
+              className={language === "hi" ? "lang-active" : ""}
+            >
+              हिं
+            </button>
+            <button
+              onClick={() => setLanguage("gu")}
+              className={language === "gu" ? "lang-active" : ""}
+            >
+              ગુ
+            </button>
           </div>
 
           <button
@@ -140,9 +170,24 @@ function App() {
               {t.nav.contact}
             </button>
             <div className="lang-switcher">
-              <button onClick={() => setLanguage("en")} className={language === "en" ? "lang-active" : ""}>EN</button>
-              <button onClick={() => setLanguage("hi")} className={language === "hi" ? "lang-active" : ""}>हिं</button>
-              <button onClick={() => setLanguage("gu")} className={language === "gu" ? "lang-active" : ""}>ગુ</button>
+              <button
+                onClick={() => setLanguage("en")}
+                className={language === "en" ? "lang-active" : ""}
+              >
+                EN
+              </button>
+              <button
+                onClick={() => setLanguage("hi")}
+                className={language === "hi" ? "lang-active" : ""}
+              >
+                हिं
+              </button>
+              <button
+                onClick={() => setLanguage("gu")}
+                className={language === "gu" ? "lang-active" : ""}
+              >
+                ગુ
+              </button>
             </div>
             <button
               onClick={() => scrollToSection("contact")}
@@ -155,7 +200,10 @@ function App() {
       </nav>
 
       {/* Hero Carousel */}
-      <section className="hero-carousel" aria-label="Photos from Gyaan Pathshala">
+      <section
+        className="hero-carousel"
+        aria-label="Photos from Gyaan Pathshala"
+      >
         <div className="carousel-wrapper-fullwidth">
           <div
             className="carousel-track"
@@ -175,7 +223,9 @@ function App() {
         {/* Hero bar */}
         <div className="carousel-bottom">
           <div className="carousel-bottom-inner">
-            <p className="carousel-caption">{t.carousel.captions[activeCarouselSlide]}</p>
+            <p className="carousel-caption">
+              {t.carousel.captions[activeCarouselSlide]}
+            </p>
             <div className="carousel-controls">
               <div className="carousel-dots">
                 {carouselImages.map((_, index) => (
@@ -205,9 +255,7 @@ function App() {
             <div className="hero-left">
               <p className="hero-label">{t.hero.label}</p>
               <h2 className="hero-heading">{t.hero.heading}</h2>
-              <p className="hero-description">
-                {t.hero.description}
-              </p>
+              <p className="hero-description">{t.hero.description}</p>
               <p className="hero-trust">{t.hero.trust}</p>
             </div>
             <div className="hero-right">
@@ -241,11 +289,15 @@ function App() {
               <div className="hero-differentiators">
                 <div className="hero-diff-item">
                   <span className="hero-diff-number">1:8</span>
-                  <span className="hero-diff-label">{t.hero.teacherStudentRatio}</span>
+                  <span className="hero-diff-label">
+                    {t.hero.teacherStudentRatio}
+                  </span>
                 </div>
                 <div className="hero-diff-item">
                   <span className="hero-diff-number">95%</span>
-                  <span className="hero-diff-label">{t.hero.parentSatisfaction}</span>
+                  <span className="hero-diff-label">
+                    {t.hero.parentSatisfaction}
+                  </span>
                 </div>
               </div>
             </div>
@@ -285,18 +337,24 @@ function App() {
       <section id="about" className="about">
         <div className="container">
           <h2 className="section-title">{t.about.title}</h2>
-          <p className="section-description">
-            {t.about.description}
-          </p>
+          <p className="section-description">{t.about.description}</p>
 
           <div className="age-groups">
             <div className="age-group">
-              <img src={handPrintImg} className="age-group-images" alt="Nursery image" />
+              <img
+                src={handPrintImg}
+                className="age-group-images"
+                alt="Nursery image"
+              />
               <h4>🧸 {t.about.nursery}</h4>
               <p>{t.about.nurseryDesc}</p>
             </div>
             <div className="age-group">
-              <img src={kindergartenImg} className="age-group-images" alt="LKG image" />
+              <img
+                src={kindergartenImg}
+                className="age-group-images"
+                alt="LKG image"
+              />
               <h4>📚 {t.about.lkg}</h4>
               <p>{t.about.lkgDesc}</p>
             </div>
@@ -306,17 +364,29 @@ function App() {
               <p>{t.about.ukgDesc}</p>
             </div>
             <div className="age-group">
-              <img src={schoolImg} className="age-group-images" alt="Class 1-2 image" />
+              <img
+                src={schoolImg}
+                className="age-group-images"
+                alt="Class 1-2 image"
+              />
               <h4>📖 {t.about.class12}</h4>
               <p>{t.about.class12Desc}</p>
             </div>
             <div className="age-group">
-              <img src={elementaryImg} className="age-group-images" alt="Class 3-5 image" />
+              <img
+                src={elementaryImg}
+                className="age-group-images"
+                alt="Class 3-5 image"
+              />
               <h4>🎓 {t.about.class35}</h4>
               <p>{t.about.class35Desc}</p>
             </div>
             <div className="age-group">
-              <img src={schoolBagImg} className="age-group-images" alt="Class 6-7 image" />
+              <img
+                src={schoolBagImg}
+                className="age-group-images"
+                alt="Class 6-7 image"
+              />
               <h4>🏆 {t.about.class67}</h4>
               <p>{t.about.class67Desc}</p>
             </div>
@@ -354,9 +424,7 @@ function App() {
       <section id="features" className="features">
         <div className="container">
           <h2 className="section-title">{t.features.title}</h2>
-          <p className="section-description">
-            {t.features.description}
-          </p>
+          <p className="section-description">{t.features.description}</p>
 
           <div className="features-list">
             <div className="feature-item">
@@ -364,16 +432,24 @@ function App() {
                 <div className="feature-icon">❤️</div>
                 <div className="feature-info">
                   <h3>{t.features.childOriented}</h3>
-                  <span className="feature-stat">{t.features.childOrientedStat}</span>
+                  <span className="feature-stat">
+                    {t.features.childOrientedStat}
+                  </span>
                 </div>
               </div>
               <p className="feature-description">
                 {t.features.childOrientedDesc}
               </p>
               <div className="feature-highlights">
-                <span className="highlight">✓ {t.features.childOrientedH1}</span>
-                <span className="highlight">✓ {t.features.childOrientedH2}</span>
-                <span className="highlight">✓ {t.features.childOrientedH3}</span>
+                <span className="highlight">
+                  ✓ {t.features.childOrientedH1}
+                </span>
+                <span className="highlight">
+                  ✓ {t.features.childOrientedH2}
+                </span>
+                <span className="highlight">
+                  ✓ {t.features.childOrientedH3}
+                </span>
               </div>
             </div>
 
@@ -385,9 +461,7 @@ function App() {
                   <span className="feature-stat">{t.features.readingStat}</span>
                 </div>
               </div>
-              <p className="feature-description">
-                {t.features.readingDesc}
-              </p>
+              <p className="feature-description">{t.features.readingDesc}</p>
               <div className="feature-highlights">
                 <span className="highlight">✓ {t.features.readingH1}</span>
                 <span className="highlight">✓ {t.features.readingH2}</span>
@@ -425,9 +499,7 @@ function App() {
                   </span>
                 </div>
               </div>
-              <p className="feature-description">
-                {t.features.individualDesc}
-              </p>
+              <p className="feature-description">{t.features.individualDesc}</p>
               <div className="feature-highlights">
                 <span className="highlight">✓ {t.features.individualH1}</span>
                 <span className="highlight">✓ {t.features.individualH2}</span>
@@ -443,9 +515,7 @@ function App() {
                   <span className="feature-stat">{t.features.phonicsStat}</span>
                 </div>
               </div>
-              <p className="feature-description">
-                {t.features.phonicsDesc}
-              </p>
+              <p className="feature-description">{t.features.phonicsDesc}</p>
               <div className="feature-highlights">
                 <span className="highlight">✓ {t.features.phonicsH1}</span>
                 <span className="highlight">✓ {t.features.phonicsH2}</span>
@@ -458,12 +528,12 @@ function App() {
                 <div className="feature-icon">🏆</div>
                 <div className="feature-info">
                   <h3>{t.features.experience}</h3>
-                  <span className="feature-stat">{t.features.experienceStat}</span>
+                  <span className="feature-stat">
+                    {t.features.experienceStat}
+                  </span>
                 </div>
               </div>
-              <p className="feature-description">
-                {t.features.experienceDesc}
-              </p>
+              <p className="feature-description">{t.features.experienceDesc}</p>
               <div className="feature-highlights">
                 <span className="highlight">✓ {t.features.experienceH1}</span>
                 <span className="highlight">✓ {t.features.experienceH2}</span>
@@ -477,17 +547,22 @@ function App() {
       {/* Testimonials */}
       <section className="testimonials">
         <div className="container">
-          <h2 className="section-title dark-background">{t.testimonials.title}</h2>
+          <h2 className="section-title dark-background">
+            {t.testimonials.title}
+          </h2>
           <div className="testimonial-container">
-            <div className="testimonial-scroll">
+            <button
+              className="testimonial-arrow testimonial-arrow-prev"
+              onClick={() => scrollTestimonials("prev")}
+              aria-label="Previous testimonials"
+            >
+              &#8249;
+            </button>
+            <div className="testimonial-scroll" ref={testimonialRef}>
               {t.testimonials.items.map((testimonial, index) => (
                 <div key={index} className="testimonial-card">
-                  <div className="stars">
-                    {"⭐".repeat(5)}
-                  </div>
-                  <p className="testimonial-text">
-                    "{testimonial.content}"
-                  </p>
+                  <div className="stars">{"⭐".repeat(5)}</div>
+                  <p className="testimonial-text">"{testimonial.content}"</p>
                   <div className="testimonial-author">
                     <h4>{testimonial.name}</h4>
                     <p>{testimonial.role}</p>
@@ -495,6 +570,13 @@ function App() {
                 </div>
               ))}
             </div>
+            <button
+              className="testimonial-arrow testimonial-arrow-next"
+              onClick={() => scrollTestimonials("next")}
+              aria-label="Next testimonials"
+            >
+              &#8250;
+            </button>
           </div>
         </div>
       </section>
@@ -503,9 +585,7 @@ function App() {
       <section id="subjects" className="subjects-section">
         <div className="container">
           <h2 className="section-title">{t.subjectsSection.title}</h2>
-          <p className="section-description">
-            {t.subjectsSection.description}
-          </p>
+          <p className="section-description">{t.subjectsSection.description}</p>
 
           <div className="subjects-list">
             <div className="subject-item">
@@ -550,12 +630,14 @@ function App() {
             {t.contact.description}
           </p>
           <div className="contact-content">
-            <img src={logoImage} alt="Gyaan Pathshala" className="contact-logo" />
+            <img
+              src={logoImage}
+              alt="Gyaan Pathshala"
+              className="contact-logo"
+            />
             <div>
               <h3 className="contact-cta-heading">{t.contact.readyToJoin}</h3>
-              <p className="contact-cta-subtext">
-                {t.contact.subtext}
-              </p>
+              <p className="contact-cta-subtext">{t.contact.subtext}</p>
             </div>
             <div className="contact-buttons">
               <a
@@ -570,7 +652,8 @@ function App() {
               </a>
             </div>
             <p className="contact-teacher">
-              {t.contact.speakWith} <strong>Bina Tejura</strong>, {t.contact.leadEducator}
+              {t.contact.speakWith} <strong>Bina Tejura</strong>,{" "}
+              {t.contact.leadEducator}
             </p>
           </div>
         </div>
@@ -588,14 +671,14 @@ function App() {
               />
               <h3>Gyaan Pathshala</h3>
               <p>{t.footer.tagline}</p>
-              <p className="footer-tagline">
-                {t.footer.nurturing}
-              </p>
+              <p className="footer-tagline">{t.footer.nurturing}</p>
             </div>
 
             <div className="footer-links">
               <h4>{t.footer.quickLinks}</h4>
-              <button onClick={() => scrollToSection("about")}>{t.nav.about}</button>
+              <button onClick={() => scrollToSection("about")}>
+                {t.nav.about}
+              </button>
               <button onClick={() => scrollToSection("features")}>
                 {t.nav.features}
               </button>
@@ -609,10 +692,14 @@ function App() {
 
             <div className="footer-contact">
               <h4>{t.footer.contact}</h4>
-              <p>+91-9998810310</p>
+              <a href="tel:+919998810310">+91-9998810310</a>
               <p>{t.footer.yearsExp}</p>
               <div className="footer-social">
-                <a href="https://www.instagram.com/gyaan.pathshala/" target="_blank" rel="noopener noreferrer">
+                <a
+                  href="https://www.instagram.com/gyaan.pathshala/"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                >
                   {t.footer.instagram}
                 </a>
               </div>
@@ -620,10 +707,7 @@ function App() {
           </div>
 
           <div className="footer-bottom">
-            <p>
-              {t.footer.copyright} | Designed with ❤️
-              for better education
-            </p>
+            <p>{t.footer.copyright} | Designed with ❤️ for better education</p>
           </div>
         </div>
       </footer>
