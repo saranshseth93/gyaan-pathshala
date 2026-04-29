@@ -176,11 +176,8 @@ function App() {
       <nav className="navbar">
         <div className="nav-container">
           <div className="nav-brand">
-            <img
-              src={logoImage}
-              alt="Gyaan Pathshala Logo"
-              className="nav-logo"
-            />
+            <img src={logoImage} alt="Gyaan Pathshala Logo" className="nav-logo" />
+            <span className="nav-tagline">જ્ઞાન પાઠશાળા</span>
           </div>
 
           <div className="nav-menu">
@@ -221,7 +218,7 @@ function App() {
             onClick={() => scrollToSection("contact")}
             className="join-btn"
           >
-            ⭐ JOIN NOW!
+            Call Now
           </button>
         </div>
 
@@ -255,7 +252,7 @@ function App() {
               onClick={() => scrollToSection("contact")}
               className="mobile-join-btn"
             >
-              ⭐ JOIN NOW!
+              Call Now
             </button>
           </div>
         )}
@@ -771,25 +768,6 @@ function App() {
                     className="experience-text"
                   >
                     contact@gyaanpathshala.com
-                  </a>
-                </div>
-              </div>
-
-              <div className="contact-item">
-                <div className="contact-icon">📍</div>
-                <div className="contact-details">
-                  <h3>Visit Us</h3>
-                  <a
-                    href="https://www.google.com/maps/search/?api=1&query=5,+Sudevi+Park+Society,+Nr.+Prabhudas+Thakkar+College,+Paldi,+Ahmedabad"
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    className="experience-text"
-                  >
-                    5, Sudevi Park Society,
-                    <br />
-                    Nr. Prabhudas Thakkar College,
-                    <br />
-                    Paldi, Ahmedabad
                   </a>
                 </div>
               </div>
