@@ -1403,3 +1403,16 @@ img {
   justify-content: center;
   margin-bottom: var(--space-sm);
 }
+
+/* Inline icons in headings */
+.inline-icon {
+  display: inline-block;
+  vertical-align: -3px;
+  margin-right: 4px;
+}
+
+.stat-icon svg { color: oklch(0.92 0.01 30); }
+.choose-icon svg { color: var(--color-terracotta); }
+.feature-icon svg { color: var(--color-terracotta); }
+.subject-icon-box svg { color: var(--color-terracotta); }
+.age-group .inline-icon { color: var(--color-terracotta); }
