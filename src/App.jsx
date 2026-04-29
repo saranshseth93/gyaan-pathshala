@@ -736,58 +736,31 @@ function App() {
         <div className="container">
           <h2 className="section-title dark-background">Get In Touch</h2>
           <p className="section-description dark-background">
-            Ready to start your child's learning journey? Contact us today!
+            Ready to start your child's learning journey? Reach out today!
           </p>
-
           <div className="contact-content">
-            <div className="contact-info">
-              <div className="contact-item">
-                <div className="contact-icon">📞</div>
-                <div className="contact-details">
-                  <h3>Call Us</h3>
-                  <p className="contact-name">Bina Tejura</p>
-                  <a href="tel:+919998810310" className="contact-phone">
-                    +91-9998810310
-                  </a>
-                </div>
-              </div>
-
-              <div className="contact-item">
-                <div className="contact-icon">📧</div>
-                <div className="contact-details">
-                  <h3>Email</h3>
-                  <a
-                    href="mailto:contact@gyaanpathshala.com"
-                    className="experience-text"
-                  >
-                    contact@gyaanpathshala.com
-                  </a>
-                </div>
-              </div>
-            </div>
-
-            <div className="contact-cta">
-              <img
-                src={logoImage}
-                alt="Gyaan Pathshala"
-                className="contact-logo"
-              />
-              <h3>Ready to Join?</h3>
-              <p>
+            <img src={logoImage} alt="Gyaan Pathshala" className="contact-logo" />
+            <div>
+              <h3 className="contact-cta-heading">Ready to Join?</h3>
+              <p className="contact-cta-subtext">
                 Give your child the best start in their educational journey.
-                Contact us today!
               </p>
+            </div>
+            <div className="contact-buttons">
               <a
                 href="https://wa.me/+919998810310/?text='Hi! I want to inquire about tuition with Gyaan Pathshala. What is the best time to call you?'"
-                className="cta-button"
+                className="contact-btn-whatsapp"
               >
-                ⭐ JOIN NOW!
+                <img src="/src/assets/whatsapp.png" width="24" height="24" alt="" />
+                WhatsApp Us
               </a>
-              <div className="cta-features">
-                <span className="cta-tag">⚡ Quick Enrollment</span>
-                <span className="cta-tag">🛡️ Safe Environment</span>
-              </div>
+              <a href="tel:+919998810310" className="contact-btn-phone">
+                📞 Call +91-9998810310
+              </a>
             </div>
+            <p className="contact-teacher">
+              Speak with <strong>Bina Tejura</strong>, Lead Educator
+            </p>
           </div>
         </div>
       </section>
