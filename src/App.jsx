@@ -589,35 +589,55 @@ function App() {
 
           <div className="subjects-list">
             <div className="subject-item">
-              <div className="subject-icon">📝</div>
-              <h3>{t.subjectsSection.english}</h3>
-              <p>{t.subjectsSection.englishDesc}</p>
+              <div className="subject-icon-box">📝</div>
+              <div className="subject-text">
+                <h3>{t.subjectsSection.english}</h3>
+                <p>{t.subjectsSection.englishDesc}</p>
+              </div>
             </div>
             <div className="subject-item">
-              <div className="subject-icon">🔢</div>
-              <h3>{t.subjectsSection.maths}</h3>
-              <p>{t.subjectsSection.mathsDesc}</p>
+              <div className="subject-icon-box">🔢</div>
+              <div className="subject-text">
+                <h3>{t.subjectsSection.maths}</h3>
+                <p>{t.subjectsSection.mathsDesc}</p>
+              </div>
             </div>
             <div className="subject-item">
-              <div className="subject-icon">🔬</div>
-              <h3>{t.subjectsSection.science}</h3>
-              <p>{t.subjectsSection.scienceDesc}</p>
+              <div className="subject-icon-box">🔬</div>
+              <div className="subject-text">
+                <h3>{t.subjectsSection.science}</h3>
+                <p>{t.subjectsSection.scienceDesc}</p>
+              </div>
             </div>
             <div className="subject-item">
-              <div className="subject-icon">🏛️</div>
-              <h3>{t.subjectsSection.socialStudies}</h3>
-              <p>{t.subjectsSection.socialStudiesDesc}</p>
+              <div className="subject-icon-box">🏛️</div>
+              <div className="subject-text">
+                <h3>{t.subjectsSection.socialStudies}</h3>
+                <p>{t.subjectsSection.socialStudiesDesc}</p>
+              </div>
             </div>
             <div className="subject-item">
-              <div className="subject-icon">🇮🇳</div>
-              <h3>{t.subjectsSection.hindi}</h3>
-              <p>{t.subjectsSection.hindiDesc}</p>
+              <div className="subject-icon-box">🇮🇳</div>
+              <div className="subject-text">
+                <h3>{t.subjectsSection.hindi}</h3>
+                <p>{t.subjectsSection.hindiDesc}</p>
+              </div>
             </div>
             <div className="subject-item">
-              <div className="subject-icon">🌱</div>
-              <h3>{t.subjectsSection.evs}</h3>
-              <p>{t.subjectsSection.evsDesc}</p>
+              <div className="subject-icon-box">🌱</div>
+              <div className="subject-text">
+                <h3>{t.subjectsSection.evs}</h3>
+                <p>{t.subjectsSection.evsDesc}</p>
+              </div>
             </div>
+          </div>
+          <div className="subjects-cta">
+            <a
+              href="https://wa.me/+919998810310/?text='Hi! I want to inquire about tuition with Gyaan Pathshala. What is the best time to call you?'"
+              className="subjects-cta-btn"
+            >
+              {t.carousel.enquireNow}
+            </a>
           </div>
         </div>
       </section>
@@ -669,7 +689,6 @@ function App() {
                 alt="Gyaan Pathshala"
                 className="footer-logo"
               />
-              <h3>Gyaan Pathshala</h3>
               <p>{t.footer.tagline}</p>
               <p className="footer-tagline">{t.footer.nurturing}</p>
             </div>
@@ -693,7 +712,6 @@ function App() {
             <div className="footer-contact">
               <h4>{t.footer.contact}</h4>
               <a href="tel:+919998810310">+91-9998810310</a>
-              <p>{t.footer.yearsExp}</p>
               <div className="footer-social">
                 <a
                   href="https://www.instagram.com/gyaan.pathshala/"
@@ -708,6 +726,7 @@ function App() {
 
           <div className="footer-bottom">
             <p>{t.footer.copyright} | Designed with ❤️ for better education</p>
+            <p className="footer-credit">Made by <a href="https://www.pixelpundit.dev/" target="_blank" rel="noopener noreferrer">Pixel Pundit</a></p>
           </div>
         </div>
       </footer>
