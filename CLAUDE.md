@@ -4,7 +4,7 @@ This file provides guidance to Claude Code (claude.ai/code) when working with co
 
 ## Project Overview
 
-Gyaan Pathshala — a single-page multilingual marketing website for a tuition center in Paldi, Ahmedabad, India (Nursery to Class 7). Supports English, Hindi, and Gujarati. Deployed to Hostinger via FTP on push to `main`.
+Gyaan Pathshala — a single-page multilingual marketing website for a tuition center in Paldi, Ahmedabad, India (Nursery to Class 7). Supports English, Hindi, and Gujarati. Deployed via Vercel on push to `main`.
 
 ## Commands
 
@@ -13,7 +13,7 @@ Gyaan Pathshala — a single-page multilingual marketing website for a tuition c
 - `npm run lint` — ESLint
 - `npm run preview` — preview production build
 
-Package manager specified as pnpm in package.json but CI uses `npm ci --legacy-peer-deps`. Use npm for consistency with deployment.
+Package manager specified as pnpm in package.json but use npm for consistency. Vercel uses `npm install --legacy-peer-deps` (configured in vercel.json).
 
 ## Architecture
 
@@ -53,4 +53,4 @@ Package manager specified as pnpm in package.json but CI uses `npm ci --legacy-p
 
 ## Deployment
 
-GitHub Actions (`.github/workflows/deploy.yml`) builds and deploys to Hostinger via FTP on push to `main`. Uses Node 18, `npm ci --legacy-peer-deps`, FTP credentials stored as GitHub secrets (`FTP_HOST`, `FTP_USERNAME`, `FTP_PASSWORD`).
+Vercel auto-deploys on push to `main`. Config in `vercel.json` (Vite framework, `dist/` output). Domain `gyaanpathshala.com` needs DNS pointed to Vercel (A record: 76.76.21.21, CNAME: cname.vercel-dns.com).
