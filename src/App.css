@@ -231,7 +231,8 @@ img {
 .carousel-wrapper-fullwidth {
   position: relative;
   width: 100%;
-  aspect-ratio: 16 / 9;
+  height: calc(100vh - 60px - 56px);
+  max-height: 560px;
   overflow: hidden;
 }
 
@@ -316,7 +317,7 @@ img {
 }
 
 @media (max-width: 768px) {
-  .carousel-wrapper-fullwidth { aspect-ratio: 4 / 3; }
+  .carousel-wrapper-fullwidth { height: 50vh; max-height: 400px; }
   .carousel-bottom {
     flex-direction: column;
     gap: var(--space-sm);
@@ -328,7 +329,7 @@ img {
 }
 
 @media (max-width: 480px) {
-  .carousel-wrapper-fullwidth { aspect-ratio: 3 / 2; }
+  .carousel-wrapper-fullwidth { height: 40vh; max-height: 300px; }
 }
 
 /* ===== HERO INFO STRIP ===== */
