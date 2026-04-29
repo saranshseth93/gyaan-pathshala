@@ -798,10 +798,14 @@ function App() {
             </div>
 
             <div className="footer-contact">
-              <h4>Contact Info</h4>
+              <h4>Contact</h4>
               <p>+91-9998810310</p>
-              <p>Paldi, Ahmedabad</p>
               <p>12+ Years Experience</p>
+              <div className="footer-social">
+                <a href="https://www.instagram.com/gyaan.pathshala/" target="_blank" rel="noopener noreferrer">
+                  Instagram
+                </a>
+              </div>
             </div>
           </div>
 
