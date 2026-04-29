@@ -29,4 +29,12 @@ pnpm-debug.log*
 
 # OS generated files
 Thumbs.db
-Desktop.ini 
+Desktop.ini
+
+# playwright
+.playwright-mcp/
+
+# screenshots
+*.png
+!src/**/*.png
+!public/**/*.png

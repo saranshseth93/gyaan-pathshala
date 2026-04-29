@@ -21,7 +21,29 @@ import kidImg from "./assets/standard-images/kid.png";
 import schoolImg from "./assets/standard-images/school.png";
 import elementaryImg from "./assets/standard-images/elementary.png";
 import schoolBagImg from "./assets/standard-images/school-bag.png";
-import { Trophy, Users, Smile, Target, Baby, BookOpen, Pencil, GraduationCap, Award, Shield, TrendingUp, Calendar, MessageCircle, Heart, Volume2, PenLine, Calculator, FlaskConical, Landmark, Languages, Sprout } from "lucide-react";
+import {
+  Trophy,
+  Users,
+  Smile,
+  Target,
+  Baby,
+  BookOpen,
+  Pencil,
+  GraduationCap,
+  Award,
+  Shield,
+  TrendingUp,
+  Calendar,
+  MessageCircle,
+  Heart,
+  Volume2,
+  PenLine,
+  Calculator,
+  FlaskConical,
+  Landmark,
+  Languages,
+  Sprout,
+} from "lucide-react";
 import "./App.css";
 
 function App() {
@@ -311,22 +333,30 @@ function App() {
         <div className="container">
           <div className="stats-grid">
             <div className="stat-item">
-              <div className="stat-icon"><Trophy size={24} /></div>
+              <div className="stat-icon">
+                <Trophy size={32} />
+              </div>
               <div className="stat-number">12+</div>
               <div className="stat-label">{t.stats.yearsExperience}</div>
             </div>
             <div className="stat-item">
-              <div className="stat-icon"><Users size={24} /></div>
+              <div className="stat-icon">
+                <Users size={32} />
+              </div>
               <div className="stat-number">500+</div>
               <div className="stat-label">{t.stats.studentsTaught}</div>
             </div>
             <div className="stat-item">
-              <div className="stat-icon"><Smile size={24} /></div>
+              <div className="stat-icon">
+                <Smile size={32} />
+              </div>
               <div className="stat-number">95%</div>
               <div className="stat-label">{t.stats.parentSatisfaction}</div>
             </div>
             <div className="stat-item">
-              <div className="stat-icon"><Target size={24} /></div>
+              <div className="stat-icon">
+                <Target size={32} />
+              </div>
               <div className="stat-number">1:8</div>
               <div className="stat-label">{t.stats.teacherStudentRatio}</div>
             </div>
@@ -347,7 +377,9 @@ function App() {
                 className="age-group-images"
                 alt="Nursery image"
               />
-              <h4><Baby size={18} className="inline-icon" /> {t.about.nursery}</h4>
+              <h4>
+                <Baby size={18} className="inline-icon" /> {t.about.nursery}
+              </h4>
               <p>{t.about.nurseryDesc}</p>
             </div>
             <div className="age-group">
@@ -356,12 +388,16 @@ function App() {
                 className="age-group-images"
                 alt="LKG image"
               />
-              <h4><BookOpen size={18} className="inline-icon" /> {t.about.lkg}</h4>
+              <h4>
+                <BookOpen size={18} className="inline-icon" /> {t.about.lkg}
+              </h4>
               <p>{t.about.lkgDesc}</p>
             </div>
             <div className="age-group">
               <img src={kidImg} className="age-group-images" alt="UKG image" />
-              <h4><Pencil size={18} className="inline-icon" /> {t.about.ukg}</h4>
+              <h4>
+                <Pencil size={18} className="inline-icon" /> {t.about.ukg}
+              </h4>
               <p>{t.about.ukgDesc}</p>
             </div>
             <div className="age-group">
@@ -370,7 +406,9 @@ function App() {
                 className="age-group-images"
                 alt="Class 1-2 image"
               />
-              <h4><BookOpen size={18} className="inline-icon" /> {t.about.class12}</h4>
+              <h4>
+                <BookOpen size={18} className="inline-icon" /> {t.about.class12}
+              </h4>
               <p>{t.about.class12Desc}</p>
             </div>
             <div className="age-group">
@@ -379,7 +417,10 @@ function App() {
                 className="age-group-images"
                 alt="Class 3-5 image"
               />
-              <h4><GraduationCap size={18} className="inline-icon" /> {t.about.class35}</h4>
+              <h4>
+                <GraduationCap size={18} className="inline-icon" />{" "}
+                {t.about.class35}
+              </h4>
               <p>{t.about.class35Desc}</p>
             </div>
             <div className="age-group">
@@ -388,7 +429,9 @@ function App() {
                 className="age-group-images"
                 alt="Class 6-7 image"
               />
-              <h4><Award size={18} className="inline-icon" /> {t.about.class67}</h4>
+              <h4>
+                <Award size={18} className="inline-icon" /> {t.about.class67}
+              </h4>
               <p>{t.about.class67Desc}</p>
             </div>
           </div>
@@ -397,22 +440,30 @@ function App() {
             <h3>{t.about.whyChoose}</h3>
             <div className="choose-grid">
               <div className="choose-item">
-                <div className="choose-icon"><Shield size={28} /></div>
+                <div className="choose-icon">
+                  <Shield size={28} />
+                </div>
                 <h4>{t.about.safeEnvironment}</h4>
                 <p>{t.about.safeEnvironmentDesc}</p>
               </div>
               <div className="choose-item">
-                <div className="choose-icon"><TrendingUp size={28} /></div>
+                <div className="choose-icon">
+                  <TrendingUp size={28} />
+                </div>
                 <h4>{t.about.provenResults}</h4>
                 <p>{t.about.provenResultsDesc}</p>
               </div>
               <div className="choose-item">
-                <div className="choose-icon"><Calendar size={28} /></div>
+                <div className="choose-icon">
+                  <Calendar size={28} />
+                </div>
                 <h4>{t.about.flexibleTiming}</h4>
                 <p>{t.about.flexibleTimingDesc}</p>
               </div>
               <div className="choose-item">
-                <div className="choose-icon"><MessageCircle size={28} /></div>
+                <div className="choose-icon">
+                  <MessageCircle size={28} />
+                </div>
                 <h4>{t.about.regularUpdates}</h4>
                 <p>{t.about.regularUpdatesDesc}</p>
               </div>
@@ -430,7 +481,9 @@ function App() {
           <div className="features-list">
             <div className="feature-item">
               <div className="feature-header">
-                <div className="feature-icon"><Heart size={24} /></div>
+                <div className="feature-icon">
+                  <Heart size={24} />
+                </div>
                 <div className="feature-info">
                   <h3>{t.features.childOriented}</h3>
                   <span className="feature-stat">
@@ -456,7 +509,9 @@ function App() {
 
             <div className="feature-item">
               <div className="feature-header">
-                <div className="feature-icon"><BookOpen size={24} /></div>
+                <div className="feature-icon">
+                  <BookOpen size={24} />
+                </div>
                 <div className="feature-info">
                   <h3>{t.features.reading}</h3>
                   <span className="feature-stat">{t.features.readingStat}</span>
@@ -472,7 +527,9 @@ function App() {
 
             <div className="feature-item">
               <div className="feature-header">
-                <div className="feature-icon"><Pencil size={24} /></div>
+                <div className="feature-icon">
+                  <Pencil size={24} />
+                </div>
                 <div className="feature-info">
                   <h3>{t.features.handwriting}</h3>
                   <span className="feature-stat">
@@ -492,7 +549,9 @@ function App() {
 
             <div className="feature-item">
               <div className="feature-header">
-                <div className="feature-icon"><Users size={24} /></div>
+                <div className="feature-icon">
+                  <Users size={24} />
+                </div>
                 <div className="feature-info">
                   <h3>{t.features.individual}</h3>
                   <span className="feature-stat">
@@ -510,7 +569,9 @@ function App() {
 
             <div className="feature-item">
               <div className="feature-header">
-                <div className="feature-icon"><Volume2 size={24} /></div>
+                <div className="feature-icon">
+                  <Volume2 size={24} />
+                </div>
                 <div className="feature-info">
                   <h3>{t.features.phonics}</h3>
                   <span className="feature-stat">{t.features.phonicsStat}</span>
@@ -526,7 +587,9 @@ function App() {
 
             <div className="feature-item">
               <div className="feature-header">
-                <div className="feature-icon"><Trophy size={24} /></div>
+                <div className="feature-icon">
+                  <Trophy size={24} />
+                </div>
                 <div className="feature-info">
                   <h3>{t.features.experience}</h3>
                   <span className="feature-stat">
@@ -590,42 +653,54 @@ function App() {
 
           <div className="subjects-list">
             <div className="subject-item">
-              <div className="subject-icon-box"><PenLine size={28} /></div>
+              <div className="subject-icon-box">
+                <PenLine size={28} />
+              </div>
               <div className="subject-text">
                 <h3>{t.subjectsSection.english}</h3>
                 <p>{t.subjectsSection.englishDesc}</p>
               </div>
             </div>
             <div className="subject-item">
-              <div className="subject-icon-box"><Calculator size={28} /></div>
+              <div className="subject-icon-box">
+                <Calculator size={28} />
+              </div>
               <div className="subject-text">
                 <h3>{t.subjectsSection.maths}</h3>
                 <p>{t.subjectsSection.mathsDesc}</p>
               </div>
             </div>
             <div className="subject-item">
-              <div className="subject-icon-box"><FlaskConical size={28} /></div>
+              <div className="subject-icon-box">
+                <FlaskConical size={28} />
+              </div>
               <div className="subject-text">
                 <h3>{t.subjectsSection.science}</h3>
                 <p>{t.subjectsSection.scienceDesc}</p>
               </div>
             </div>
             <div className="subject-item">
-              <div className="subject-icon-box"><Landmark size={28} /></div>
+              <div className="subject-icon-box">
+                <Landmark size={28} />
+              </div>
               <div className="subject-text">
                 <h3>{t.subjectsSection.socialStudies}</h3>
                 <p>{t.subjectsSection.socialStudiesDesc}</p>
               </div>
             </div>
             <div className="subject-item">
-              <div className="subject-icon-box"><Languages size={28} /></div>
+              <div className="subject-icon-box">
+                <Languages size={28} />
+              </div>
               <div className="subject-text">
                 <h3>{t.subjectsSection.hindi}</h3>
                 <p>{t.subjectsSection.hindiDesc}</p>
               </div>
             </div>
             <div className="subject-item">
-              <div className="subject-icon-box"><Sprout size={28} /></div>
+              <div className="subject-icon-box">
+                <Sprout size={28} />
+              </div>
               <div className="subject-text">
                 <h3>{t.subjectsSection.evs}</h3>
                 <p>{t.subjectsSection.evsDesc}</p>
@@ -719,7 +794,16 @@ function App() {
 
           <div className="footer-bottom">
             <p>{t.footer.copyright} | Designed with ❤️ for better education</p>
-            <p className="footer-credit">Made by <a href="https://www.pixelpundit.dev/" target="_blank" rel="noopener noreferrer">Pixel Pundit</a></p>
+            <p className="footer-credit">
+              Made by{" "}
+              <a
+                href="https://www.pixelpundit.dev/"
+                target="_blank"
+                rel="noopener noreferrer"
+              >
+                Pixel Pundit
+              </a>
+            </p>
           </div>
         </div>
       </footer>
