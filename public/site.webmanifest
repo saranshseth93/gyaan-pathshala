@@ -1,0 +1,16 @@
+{
+  "name": "Gyaan Pathshala",
+  "short_name": "Gyaan Pathshala",
+  "description": "Premier tuition classes for Nursery to Class 7 in Ahmedabad",
+  "start_url": "/",
+  "display": "standalone",
+  "background_color": "#f5f0eb",
+  "theme_color": "#c4613a",
+  "icons": [
+    {
+      "src": "/favicon.png",
+      "sizes": "512x512",
+      "type": "image/png"
+    }
+  ]
+}

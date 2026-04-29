@@ -76,6 +76,11 @@ function App() {
     return () => clearInterval(carouselInterval);
   }, []);
 
+  useEffect(() => {
+    const langMap = { en: "en", hi: "hi", gu: "gu" };
+    document.documentElement.lang = langMap[language] || "en";
+  }, [language]);
+
   const carouselImages = [
     { src: carousel1, alt: "Teacher giving personalized attention to a child" },
     { src: carousel2, alt: "Experienced teacher guiding students" },
