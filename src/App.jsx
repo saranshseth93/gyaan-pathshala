@@ -311,22 +311,22 @@ function App() {
         <div className="container">
           <div className="stats-grid">
             <div className="stat-item">
-              <div className="stat-icon"><Trophy size={20} /></div>
+              <div className="stat-icon"><Trophy size={24} /></div>
               <div className="stat-number">12+</div>
               <div className="stat-label">{t.stats.yearsExperience}</div>
             </div>
             <div className="stat-item">
-              <div className="stat-icon"><Users size={20} /></div>
+              <div className="stat-icon"><Users size={24} /></div>
               <div className="stat-number">500+</div>
               <div className="stat-label">{t.stats.studentsTaught}</div>
             </div>
             <div className="stat-item">
-              <div className="stat-icon"><Smile size={20} /></div>
+              <div className="stat-icon"><Smile size={24} /></div>
               <div className="stat-number">95%</div>
               <div className="stat-label">{t.stats.parentSatisfaction}</div>
             </div>
             <div className="stat-item">
-              <div className="stat-icon"><Target size={20} /></div>
+              <div className="stat-icon"><Target size={24} /></div>
               <div className="stat-number">1:8</div>
               <div className="stat-label">{t.stats.teacherStudentRatio}</div>
             </div>

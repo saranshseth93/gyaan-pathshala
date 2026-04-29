@@ -583,8 +583,10 @@ img {
 }
 
 .stat-icon {
-  font-size: 20px;
-  margin-bottom: 2px;
+  margin-bottom: var(--space-xs);
+  display: flex;
+  align-items: center;
+  justify-content: center;
 }
 
 .stat-number {
@@ -740,8 +742,14 @@ img {
 }
 
 .choose-icon {
-  font-size: 32px;
-  margin-bottom: var(--space-md);
+  width: 56px;
+  height: 56px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin: 0 auto var(--space-md);
+  background: oklch(0.62 0.16 30 / 0.1);
+  border-radius: var(--radius-full);
 }
 
 .choose-item h4 {
@@ -814,12 +822,12 @@ img {
 }
 
 .feature-icon {
-  font-size: 28px;
   flex-shrink: 0;
   width: 48px;
   height: 48px;
-  display: grid;
-  place-items: center;
+  display: flex;
+  align-items: center;
+  justify-content: center;
   background: oklch(0.62 0.16 30 / 0.1);
   border-radius: var(--radius-md);
 }
@@ -1012,12 +1020,12 @@ img {
 }
 
 .subject-icon-box {
-  font-size: 32px;
   flex-shrink: 0;
   width: 52px;
   height: 52px;
-  display: grid;
-  place-items: center;
+  display: flex;
+  align-items: center;
+  justify-content: center;
   background: var(--color-white-warm);
   border-radius: var(--radius-md);
 }
@@ -1407,8 +1415,10 @@ img {
 /* Inline icons in headings */
 .inline-icon {
   display: inline-block;
-  vertical-align: -3px;
+  vertical-align: middle;
   margin-right: 4px;
+  position: relative;
+  top: -1px;
 }
 
 .stat-icon svg { color: oklch(0.92 0.01 30); }
