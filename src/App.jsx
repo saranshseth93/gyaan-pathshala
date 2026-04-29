@@ -311,78 +311,67 @@ function App() {
         </div>
       </section>
 
-      {/* Hero Section - final */}
+      {/* Hero Info Strip */}
       <section className="hero">
         <div className="container">
-          <div className="hero-content">
-            <img
-              src={logoHorizontal}
-              alt="Gyaan Pathshala"
-              className="hero-logo"
-            />
-
-            <h2 className="hero-heading">Let's Study Together!</h2>
-            <p className="hero-description">
-              Welcome to Gyaan Pathshala, where learning becomes a joyful
-              journey! We provide comprehensive coaching from Nursery to Class 7
-              for all subjects, with a focus on building strong foundations.
-            </p>
-
-            <div className="hero-buttons">
-              <button
-                onClick={() => scrollToSection("contact")}
-                className="btn-primary"
-              >
-                ⭐ JOIN NOW!
-              </button>
-              <button
-                onClick={() => scrollToSection("features")}
-                className="btn-secondary"
-              >
-                ▶ Learn More
-              </button>
+          <div className="hero-grid">
+            <div className="hero-left">
+              <p className="hero-label">Nursery to Class 7 Coaching in Paldi, Ahmedabad</p>
+              <h2 className="hero-heading">Building strong foundations, one child at a time.</h2>
+              <p className="hero-description">
+                Personalized attention in small batches of 8-12 students. All subjects covered with 12+ years of proven results.
+              </p>
+              <div className="hero-buttons">
+                <a
+                  href="https://wa.me/+919998810310/?text='Hi! I want to inquire about tuition with Gyaan Pathshala. What is the best time to call you?'"
+                  className="btn-primary"
+                >
+                  Message on WhatsApp
+                </a>
+                <a href="tel:+919998810310" className="btn-secondary">
+                  Call +91-99988 10310
+                </a>
+              </div>
+              <p className="hero-trust">Trusted by 500+ families since 2012</p>
             </div>
-
-            {/* Animated Experience Badge */}
-            <div className="experience-badge">
-              🏆 12+ Years Experience!
-            </div>
-          </div>
-
-          <div className="subjects-overview">
-            <h3 className="subjects-title">
-              📚 Coaching From Nursery to Class 7
-            </h3>
-            <div className="subjects-grid">
-              <span className="subject-tag">
-                <img src={englishIcon} className="subject-icons" alt="English Icon" />
-                English
-              </span>
-              <span className="subject-tag">
-                <img src={mathsIcon} className="subject-icons" alt="Maths Icon" />
-                Mathematics
-              </span>
-              <span className="subject-tag">
-                <img src={scienceIcon} className="subject-icons" alt="Science Icon" />
-                Science
-              </span>
-              <span className="subject-tag">
-                <img src={ssIcon} className="subject-icons" alt="Social Studies Icon" />
-                Social Studies
-              </span>
-              <span className="subject-tag">
-                <img src={hindiIcon} className="subject-icons" alt="Hindi Icon" />
-                Hindi
-              </span>
-              <span className="subject-tag">
-                <img src={esIcon} className="subject-icons" alt="Environmental Studies Icon" />
-                Environmental Studies
-              </span>
-            </div>
-            <p className="subjects-note">All Subjects Covered</p>
-            <div className="subjects-features">
-              <span className="feature-tag">Small Batches</span>
-              <span className="feature-tag">Expert Teachers</span>
+            <div className="hero-right">
+              <h3 className="hero-right-title">What We Teach</h3>
+              <div className="subjects-grid">
+                <span className="subject-tag">
+                  <img src={englishIcon} className="subject-icons" alt="" />
+                  English
+                </span>
+                <span className="subject-tag">
+                  <img src={mathsIcon} className="subject-icons" alt="" />
+                  Maths
+                </span>
+                <span className="subject-tag">
+                  <img src={scienceIcon} className="subject-icons" alt="" />
+                  Science
+                </span>
+                <span className="subject-tag">
+                  <img src={ssIcon} className="subject-icons" alt="" />
+                  Social Studies
+                </span>
+                <span className="subject-tag">
+                  <img src={hindiIcon} className="subject-icons" alt="" />
+                  Hindi
+                </span>
+                <span className="subject-tag">
+                  <img src={esIcon} className="subject-icons" alt="" />
+                  EVS
+                </span>
+              </div>
+              <div className="hero-differentiators">
+                <div className="hero-diff-item">
+                  <span className="hero-diff-number">1:8</span>
+                  <span className="hero-diff-label">Teacher-Student Ratio</span>
+                </div>
+                <div className="hero-diff-item">
+                  <span className="hero-diff-number">95%</span>
+                  <span className="hero-diff-label">Parent Satisfaction</span>
+                </div>
+              </div>
             </div>
           </div>
         </div>
