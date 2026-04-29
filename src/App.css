@@ -843,3 +843,45 @@ img {
 @media (max-width: 480px) {
   .testimonial-card { flex: 0 0 260px; padding: var(--space-lg); }
 }
+
+/* ===== SUBJECTS SECTION ===== */
+.subjects-section {
+  padding: var(--space-section) 0;
+  background: var(--color-white-warm);
+}
+
+.subjects-list {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+  gap: var(--space-md);
+  max-width: 700px;
+  margin: 0 auto;
+}
+
+.subject-item {
+  background: var(--color-cream);
+  padding: var(--space-lg);
+  border-radius: var(--radius-md);
+  text-align: center;
+  transition: box-shadow var(--duration-fast) var(--ease-out);
+}
+.subject-item:hover { box-shadow: var(--shadow-md); }
+
+.subject-icon { font-size: 28px; margin-bottom: var(--space-sm); }
+
+.subject-item h3 {
+  font-family: var(--font-display);
+  color: var(--color-charcoal);
+  font-size: var(--text-base);
+  margin-bottom: var(--space-xs);
+  font-weight: 700;
+}
+
+.subject-item p {
+  color: var(--color-charcoal-light);
+  font-size: var(--text-xs);
+}
+
+@media (max-width: 480px) {
+  .subjects-list { grid-template-columns: repeat(2, 1fr); }
+}
