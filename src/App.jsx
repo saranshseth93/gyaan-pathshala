@@ -818,6 +818,19 @@ function App() {
         </div>
       </footer>
 
+      {/* Sticky Bottom CTA - Mobile Only */}
+      <div className="sticky-cta">
+        <a
+          href="https://wa.me/+919998810310/?text='Hi! I want to inquire about tuition with Gyaan Pathshala. What is the best time to call you?'"
+          className="sticky-cta-whatsapp"
+        >
+          WhatsApp
+        </a>
+        <a href="tel:+919998810310" className="sticky-cta-phone">
+          📞 Call Now
+        </a>
+      </div>
+
       {/* Floating Action Button */}
       <a
         href="https://wa.me/+919998810310/?text='Hi! I want to inquire about tuition with Gyaan Pathshala. What is the best time to call you?'"
