@@ -1,4 +1,5 @@
 import React, { useState, useEffect } from "react";
+import { useLanguage } from "./i18n/LanguageContext";
 import logoImage from "./assets/logo.svg";
 import logoHorizontal from "./assets/logo-horizontal.svg";
 import carousel1 from "./assets/carousel1.jpg";
@@ -26,6 +27,7 @@ function App() {
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
   const [activeCarouselSlide, setActiveCarouselSlide] = useState(0);
   const [scrolled, setScrolled] = useState(false);
+  const { language, setLanguage, t } = useLanguage();
 
   useEffect(() => {
     const handleScroll = () => setScrolled(window.scrollY > 80);
@@ -41,91 +43,18 @@ function App() {
   }, []);
 
   const carouselImages = [
-    { src: carousel1, alt: "Teacher giving personalized attention to a child", caption: "Personalized attention for every child" },
-    { src: carousel2, alt: "Experienced teacher guiding students", caption: "12+ years of teaching experience" },
-    { src: carousel3, alt: "Students learning through interactive activities", caption: "Learning through phonics and activities" },
-    { src: carousel4, alt: "Creative hands-on classroom activities", caption: "Hands-on creative exploration" },
-    { src: carousel5, alt: "Celebrating student achievements together", caption: "Celebrating every milestone" },
-    { src: carousel6, alt: "Safe and supportive learning environment", caption: "A safe place to grow and learn" },
+    { src: carousel1, alt: "Teacher giving personalized attention to a child" },
+    { src: carousel2, alt: "Experienced teacher guiding students" },
+    { src: carousel3, alt: "Students learning through interactive activities" },
+    { src: carousel4, alt: "Creative hands-on classroom activities" },
+    { src: carousel5, alt: "Celebrating student achievements together" },
+    { src: carousel6, alt: "Safe and supportive learning environment" },
   ];
 
   const scrollToSection = (sectionId) => {
     document.getElementById(sectionId)?.scrollIntoView({ behavior: "smooth" });
     setMobileMenuOpen(false);
   };
-
-  const testimonials = [
-    {
-      name: "Priya Sharma",
-      role: "Parent of Class 3 Student",
-      content:
-        "My daughter's confidence has improved tremendously since joining Gyaan Pathshala. The individual attention is remarkable.",
-      rating: 5,
-    },
-    {
-      name: "Rajesh Patel",
-      role: "Parent of UKG Student",
-      content:
-        "The phonics program here is excellent. My son learned to read much faster than expected.",
-      rating: 5,
-    },
-    {
-      name: "Meera Gandhi",
-      role: "Parent of Class 5 Student",
-      content:
-        "Bina ma'am's experience shows in her teaching. My child's performance has improved significantly.",
-      rating: 5,
-    },
-    {
-      name: "Sonal Desai",
-      role: "Parent of Class 2 Student",
-      content:
-        "The teachers are patient and truly care about each child. My son looks forward to every class!",
-      rating: 5,
-    },
-    {
-      name: "Amit Trivedi",
-      role: "Parent of Nursery Student",
-      content:
-        "We noticed a big difference in our daughter's social and academic skills within a few months. Highly recommended!",
-      rating: 5,
-    },
-    {
-      name: "Neha Joshi",
-      role: "Parent of Class 6 Student",
-      content:
-        "The small batch size ensures my child gets the attention she needs. The progress reports are very helpful.",
-      rating: 4,
-    },
-    {
-      name: "Vikram Shah",
-      role: "Parent of Class 4 Student",
-      content:
-        "Gyaan Pathshala's approach is holistic. My son enjoys learning and has become much more confident.",
-      rating: 5,
-    },
-    {
-      name: "Rupal Mehta",
-      role: "Parent of LKG Student",
-      content:
-        "The environment is safe and nurturing. My child settled in quickly and loves her teachers!",
-      rating: 5,
-    },
-    {
-      name: "Deepak Soni",
-      role: "Parent of Class 7 Student",
-      content:
-        "We are grateful for the personal attention and regular updates. My daughter's grades have improved a lot.",
-      rating: 4,
-    },
-    {
-      name: "Anjali Bhatt",
-      role: "Parent of Class 1 Student",
-      content:
-        "The creative activities and interactive sessions keep my child engaged and excited to learn.",
-      rating: 5,
-    },
-  ];
 
   return (
     <div className="app">
@@ -141,26 +70,32 @@ function App() {
               onClick={() => scrollToSection("about")}
               className="nav-link"
             >
-              About
+              {t.nav.about}
             </button>
             <button
               onClick={() => scrollToSection("features")}
               className="nav-link"
             >
-              Features
+              {t.nav.features}
             </button>
             <button
               onClick={() => scrollToSection("subjects")}
               className="nav-link"
             >
-              Subjects
+              {t.nav.subjects}
             </button>
             <button
               onClick={() => scrollToSection("contact")}
               className="nav-link"
             >
-              Contact
+              {t.nav.contact}
             </button>
+          </div>
+
+          <div className="lang-switcher">
+            <button onClick={() => setLanguage("en")} className={language === "en" ? "lang-active" : ""}>EN</button>
+            <button onClick={() => setLanguage("hi")} className={language === "hi" ? "lang-active" : ""}>हिं</button>
+            <button onClick={() => setLanguage("gu")} className={language === "gu" ? "lang-active" : ""}>ગુ</button>
           </div>
 
           <button
@@ -174,7 +109,7 @@ function App() {
             onClick={() => scrollToSection("contact")}
             className="join-btn"
           >
-            Call Now
+            {t.nav.callNow}
           </button>
         </div>
 
@@ -184,31 +119,36 @@ function App() {
               onClick={() => scrollToSection("about")}
               className="mobile-link"
             >
-              About
+              {t.nav.about}
             </button>
             <button
               onClick={() => scrollToSection("features")}
               className="mobile-link"
             >
-              Features
+              {t.nav.features}
             </button>
             <button
               onClick={() => scrollToSection("subjects")}
               className="mobile-link"
             >
-              Subjects
+              {t.nav.subjects}
             </button>
             <button
               onClick={() => scrollToSection("contact")}
               className="mobile-link"
             >
-              Contact
+              {t.nav.contact}
             </button>
+            <div className="lang-switcher">
+              <button onClick={() => setLanguage("en")} className={language === "en" ? "lang-active" : ""}>EN</button>
+              <button onClick={() => setLanguage("hi")} className={language === "hi" ? "lang-active" : ""}>हिं</button>
+              <button onClick={() => setLanguage("gu")} className={language === "gu" ? "lang-active" : ""}>ગુ</button>
+            </div>
             <button
               onClick={() => scrollToSection("contact")}
               className="mobile-join-btn"
             >
-              Call Now
+              {t.nav.callNow}
             </button>
           </div>
         )}
@@ -235,7 +175,7 @@ function App() {
         {/* Hero bar */}
         <div className="carousel-bottom">
           <div className="carousel-bottom-inner">
-            <p className="carousel-caption">{carouselImages[activeCarouselSlide].caption}</p>
+            <p className="carousel-caption">{t.carousel.captions[activeCarouselSlide]}</p>
             <div className="carousel-controls">
               <div className="carousel-dots">
                 {carouselImages.map((_, index) => (
@@ -251,7 +191,7 @@ function App() {
                 href="https://wa.me/+919998810310/?text='Hi! I want to inquire about tuition with Gyaan Pathshala. What is the best time to call you?'"
                 className="carousel-cta"
               >
-                Enquire Now
+                {t.carousel.enquireNow}
               </a>
             </div>
           </div>
@@ -263,60 +203,49 @@ function App() {
         <div className="container">
           <div className="hero-grid">
             <div className="hero-left">
-              <p className="hero-label">Nursery to Class 7 Coaching in Paldi, Ahmedabad</p>
-              <h2 className="hero-heading">Building strong foundations, one child at a time.</h2>
+              <p className="hero-label">{t.hero.label}</p>
+              <h2 className="hero-heading">{t.hero.heading}</h2>
               <p className="hero-description">
-                Personalized attention in small batches of 8-12 students. All subjects covered with 12+ years of proven results.
+                {t.hero.description}
               </p>
-              <div className="hero-buttons">
-                <a
-                  href="https://wa.me/+919998810310/?text='Hi! I want to inquire about tuition with Gyaan Pathshala. What is the best time to call you?'"
-                  className="btn-primary"
-                >
-                  Message on WhatsApp
-                </a>
-                <a href="tel:+919998810310" className="btn-secondary">
-                  Call +91-99988 10310
-                </a>
-              </div>
-              <p className="hero-trust">Trusted by 500+ families since 2012</p>
+              <p className="hero-trust">{t.hero.trust}</p>
             </div>
             <div className="hero-right">
-              <h3 className="hero-right-title">What We Teach</h3>
+              <h3 className="hero-right-title">{t.hero.whatWeTeach}</h3>
               <div className="subjects-grid">
                 <span className="subject-tag">
                   <img src={englishIcon} className="subject-icons" alt="" />
-                  English
+                  {t.subjects.english}
                 </span>
                 <span className="subject-tag">
                   <img src={mathsIcon} className="subject-icons" alt="" />
-                  Maths
+                  {t.subjects.maths}
                 </span>
                 <span className="subject-tag">
                   <img src={scienceIcon} className="subject-icons" alt="" />
-                  Science
+                  {t.subjects.science}
                 </span>
                 <span className="subject-tag">
                   <img src={ssIcon} className="subject-icons" alt="" />
-                  Social Studies
+                  {t.subjects.socialStudies}
                 </span>
                 <span className="subject-tag">
                   <img src={hindiIcon} className="subject-icons" alt="" />
-                  Hindi
+                  {t.subjects.hindi}
                 </span>
                 <span className="subject-tag">
                   <img src={esIcon} className="subject-icons" alt="" />
-                  EVS
+                  {t.subjects.evs}
                 </span>
               </div>
               <div className="hero-differentiators">
                 <div className="hero-diff-item">
                   <span className="hero-diff-number">1:8</span>
-                  <span className="hero-diff-label">Teacher-Student Ratio</span>
+                  <span className="hero-diff-label">{t.hero.teacherStudentRatio}</span>
                 </div>
                 <div className="hero-diff-item">
                   <span className="hero-diff-number">95%</span>
-                  <span className="hero-diff-label">Parent Satisfaction</span>
+                  <span className="hero-diff-label">{t.hero.parentSatisfaction}</span>
                 </div>
               </div>
             </div>
@@ -331,22 +260,22 @@ function App() {
             <div className="stat-item">
               <div className="stat-icon">🏆</div>
               <div className="stat-number">12+</div>
-              <div className="stat-label">Years Experience</div>
+              <div className="stat-label">{t.stats.yearsExperience}</div>
             </div>
             <div className="stat-item">
               <div className="stat-icon">👥</div>
               <div className="stat-number">500+</div>
-              <div className="stat-label">Students Taught</div>
+              <div className="stat-label">{t.stats.studentsTaught}</div>
             </div>
             <div className="stat-item">
               <div className="stat-icon">😊</div>
               <div className="stat-number">95%</div>
-              <div className="stat-label">Parent Satisfaction</div>
+              <div className="stat-label">{t.stats.parentSatisfaction}</div>
             </div>
             <div className="stat-item">
               <div className="stat-icon">🎯</div>
               <div className="stat-number">1:8</div>
-              <div className="stat-label">Teacher-Student Ratio</div>
+              <div className="stat-label">{t.stats.teacherStudentRatio}</div>
             </div>
           </div>
         </div>
@@ -355,68 +284,66 @@ function App() {
       {/* About Section */}
       <section id="about" className="about">
         <div className="container">
-          <h2 className="section-title">About Gyaan Pathshala</h2>
+          <h2 className="section-title">{t.about.title}</h2>
           <p className="section-description">
-            At Gyaan Pathshala, we believe that every child has the potential to
-            excel. Our mission is to provide quality education that nurtures
-            young minds and builds strong academic foundations.
+            {t.about.description}
           </p>
 
           <div className="age-groups">
             <div className="age-group">
               <img src={handPrintImg} className="age-group-images" alt="Nursery image" />
-              <h4>🧸 Nursery</h4>
-              <p>Play-based learning</p>
+              <h4>🧸 {t.about.nursery}</h4>
+              <p>{t.about.nurseryDesc}</p>
             </div>
             <div className="age-group">
               <img src={kindergartenImg} className="age-group-images" alt="LKG image" />
-              <h4>📚 LKG</h4>
-              <p>Basic concepts & skills</p>
+              <h4>📚 {t.about.lkg}</h4>
+              <p>{t.about.lkgDesc}</p>
             </div>
             <div className="age-group">
               <img src={kidImg} className="age-group-images" alt="UKG image" />
-              <h4>✏️ UKG</h4>
-              <p>School readiness</p>
+              <h4>✏️ {t.about.ukg}</h4>
+              <p>{t.about.ukgDesc}</p>
             </div>
             <div className="age-group">
               <img src={schoolImg} className="age-group-images" alt="Class 1-2 image" />
-              <h4>📖 Class 1-2</h4>
-              <p>Foundation building</p>
+              <h4>📖 {t.about.class12}</h4>
+              <p>{t.about.class12Desc}</p>
             </div>
             <div className="age-group">
               <img src={elementaryImg} className="age-group-images" alt="Class 3-5 image" />
-              <h4>🎓 Class 3-5</h4>
-              <p>Skill development</p>
+              <h4>🎓 {t.about.class35}</h4>
+              <p>{t.about.class35Desc}</p>
             </div>
             <div className="age-group">
               <img src={schoolBagImg} className="age-group-images" alt="Class 6-7 image" />
-              <h4>🏆 Class 6-7</h4>
-              <p>Advanced concepts</p>
+              <h4>🏆 {t.about.class67}</h4>
+              <p>{t.about.class67Desc}</p>
             </div>
           </div>
 
           <div className="why-choose">
-            <h3>Why Parents Choose Us</h3>
+            <h3>{t.about.whyChoose}</h3>
             <div className="choose-grid">
               <div className="choose-item">
                 <div className="choose-icon">🛡️</div>
-                <h4>Safe Environment</h4>
-                <p>Verified staff & secure premises</p>
+                <h4>{t.about.safeEnvironment}</h4>
+                <p>{t.about.safeEnvironmentDesc}</p>
               </div>
               <div className="choose-item">
                 <div className="choose-icon">📈</div>
-                <h4>Proven Results</h4>
-                <p>Consistent grade improvement</p>
+                <h4>{t.about.provenResults}</h4>
+                <p>{t.about.provenResultsDesc}</p>
               </div>
               <div className="choose-item">
                 <div className="choose-icon">📅</div>
-                <h4>Flexible Timing</h4>
-                <p>Convenient schedules</p>
+                <h4>{t.about.flexibleTiming}</h4>
+                <p>{t.about.flexibleTimingDesc}</p>
               </div>
               <div className="choose-item">
                 <div className="choose-icon">💬</div>
-                <h4>Regular Updates</h4>
-                <p>Weekly progress reports</p>
+                <h4>{t.about.regularUpdates}</h4>
+                <p>{t.about.regularUpdatesDesc}</p>
               </div>
             </div>
           </div>
@@ -426,10 +353,9 @@ function App() {
       {/* Features Section */}
       <section id="features" className="features">
         <div className="container">
-          <h2 className="section-title">Salient Features</h2>
+          <h2 className="section-title">{t.features.title}</h2>
           <p className="section-description">
-            Discover what makes Gyaan Pathshala the perfect choice for your
-            child's educational journey
+            {t.features.description}
           </p>
 
           <div className="features-list">
@@ -437,18 +363,17 @@ function App() {
               <div className="feature-header">
                 <div className="feature-icon">❤️</div>
                 <div className="feature-info">
-                  <h3>Child-Oriented Learning</h3>
-                  <span className="feature-stat">95% Parent Satisfaction</span>
+                  <h3>{t.features.childOriented}</h3>
+                  <span className="feature-stat">{t.features.childOrientedStat}</span>
                 </div>
               </div>
               <p className="feature-description">
-                Teaching methodology designed for young minds with
-                age-appropriate methods and stress-free environment.
+                {t.features.childOrientedDesc}
               </p>
               <div className="feature-highlights">
-                <span className="highlight">✓ Age-appropriate methods</span>
-                <span className="highlight">✓ Interactive activities</span>
-                <span className="highlight">✓ Stress-free environment</span>
+                <span className="highlight">✓ {t.features.childOrientedH1}</span>
+                <span className="highlight">✓ {t.features.childOrientedH2}</span>
+                <span className="highlight">✓ {t.features.childOrientedH3}</span>
               </div>
             </div>
 
@@ -456,18 +381,17 @@ function App() {
               <div className="feature-header">
                 <div className="feature-icon">📖</div>
                 <div className="feature-info">
-                  <h3>Reading Improvement</h3>
-                  <span className="feature-stat">80% Reading Improvement</span>
+                  <h3>{t.features.reading}</h3>
+                  <span className="feature-stat">{t.features.readingStat}</span>
                 </div>
               </div>
               <p className="feature-description">
-                Comprehensive reading program focusing on phonetic approach,
-                comprehension, and vocabulary building.
+                {t.features.readingDesc}
               </p>
               <div className="feature-highlights">
-                <span className="highlight">✓ Phonetic reading</span>
-                <span className="highlight">✓ Comprehension development</span>
-                <span className="highlight">✓ Vocabulary building</span>
+                <span className="highlight">✓ {t.features.readingH1}</span>
+                <span className="highlight">✓ {t.features.readingH2}</span>
+                <span className="highlight">✓ {t.features.readingH3}</span>
               </div>
             </div>
 
@@ -475,20 +399,19 @@ function App() {
               <div className="feature-header">
                 <div className="feature-icon">✏️</div>
                 <div className="feature-info">
-                  <h3>Handwriting Enhancement</h3>
+                  <h3>{t.features.handwriting}</h3>
                   <span className="feature-stat">
-                    90% Handwriting Enhancement
+                    {t.features.handwritingStat}
                   </span>
                 </div>
               </div>
               <p className="feature-description">
-                Structured program for proper letter formation, spacing, and
-                writing posture development.
+                {t.features.handwritingDesc}
               </p>
               <div className="feature-highlights">
-                <span className="highlight">✓ Proper grip training</span>
-                <span className="highlight">✓ Letter formation</span>
-                <span className="highlight">✓ Fine motor skills</span>
+                <span className="highlight">✓ {t.features.handwritingH1}</span>
+                <span className="highlight">✓ {t.features.handwritingH2}</span>
+                <span className="highlight">✓ {t.features.handwritingH3}</span>
               </div>
             </div>
 
@@ -496,20 +419,19 @@ function App() {
               <div className="feature-header">
                 <div className="feature-icon">👥</div>
                 <div className="feature-info">
-                  <h3>Individual Attention</h3>
+                  <h3>{t.features.individual}</h3>
                   <span className="feature-stat">
-                    1:8 Teacher-Student Ratio
+                    {t.features.individualStat}
                   </span>
                 </div>
               </div>
               <p className="feature-description">
-                Small batch sizes ensuring personalized attention and customized
-                learning plans for every child.
+                {t.features.individualDesc}
               </p>
               <div className="feature-highlights">
-                <span className="highlight">✓ Small batches (8-12)</span>
-                <span className="highlight">✓ Personalized plans</span>
-                <span className="highlight">✓ Progress tracking</span>
+                <span className="highlight">✓ {t.features.individualH1}</span>
+                <span className="highlight">✓ {t.features.individualH2}</span>
+                <span className="highlight">✓ {t.features.individualH3}</span>
               </div>
             </div>
 
@@ -517,18 +439,17 @@ function App() {
               <div className="feature-header">
                 <div className="feature-icon">🔊</div>
                 <div className="feature-info">
-                  <h3>Phonics Program</h3>
-                  <span className="feature-stat">85% Reading Fluency Gain</span>
+                  <h3>{t.features.phonics}</h3>
+                  <span className="feature-stat">{t.features.phonicsStat}</span>
                 </div>
               </div>
               <p className="feature-description">
-                Systematic phonics instruction using multi-sensory approaches
-                for independent reading skills.
+                {t.features.phonicsDesc}
               </p>
               <div className="feature-highlights">
-                <span className="highlight">✓ Systematic instruction</span>
-                <span className="highlight">✓ Multi-sensory approach</span>
-                <span className="highlight">✓ Independent reading</span>
+                <span className="highlight">✓ {t.features.phonicsH1}</span>
+                <span className="highlight">✓ {t.features.phonicsH2}</span>
+                <span className="highlight">✓ {t.features.phonicsH3}</span>
               </div>
             </div>
 
@@ -536,18 +457,17 @@ function App() {
               <div className="feature-header">
                 <div className="feature-icon">🏆</div>
                 <div className="feature-info">
-                  <h3>12+ Years Experience</h3>
-                  <span className="feature-stat">500+ Students Taught</span>
+                  <h3>{t.features.experience}</h3>
+                  <span className="feature-stat">{t.features.experienceStat}</span>
                 </div>
               </div>
               <p className="feature-description">
-                Proven expertise with experienced faculty and consistently
-                excellent results.
+                {t.features.experienceDesc}
               </p>
               <div className="feature-highlights">
-                <span className="highlight">✓ Proven methods</span>
-                <span className="highlight">✓ Experienced faculty</span>
-                <span className="highlight">✓ Excellent results</span>
+                <span className="highlight">✓ {t.features.experienceH1}</span>
+                <span className="highlight">✓ {t.features.experienceH2}</span>
+                <span className="highlight">✓ {t.features.experienceH3}</span>
               </div>
             </div>
           </div>
@@ -557,13 +477,13 @@ function App() {
       {/* Testimonials */}
       <section className="testimonials">
         <div className="container">
-          <h2 className="section-title dark-background">What Parents Say</h2>
+          <h2 className="section-title dark-background">{t.testimonials.title}</h2>
           <div className="testimonial-container">
             <div className="testimonial-scroll">
-              {testimonials.map((testimonial, index) => (
+              {t.testimonials.items.map((testimonial, index) => (
                 <div key={index} className="testimonial-card">
                   <div className="stars">
-                    {"⭐".repeat(testimonial.rating)}
+                    {"⭐".repeat(5)}
                   </div>
                   <p className="testimonial-text">
                     "{testimonial.content}"
@@ -582,42 +502,41 @@ function App() {
       {/* Subjects Section */}
       <section id="subjects" className="subjects-section">
         <div className="container">
-          <h2 className="section-title">Subjects We Teach</h2>
+          <h2 className="section-title">{t.subjectsSection.title}</h2>
           <p className="section-description">
-            Comprehensive curriculum covering all essential subjects for
-            holistic development
+            {t.subjectsSection.description}
           </p>
 
           <div className="subjects-list">
             <div className="subject-item">
               <div className="subject-icon">📝</div>
-              <h3>English</h3>
-              <p>Reading, Writing, Grammar</p>
+              <h3>{t.subjectsSection.english}</h3>
+              <p>{t.subjectsSection.englishDesc}</p>
             </div>
             <div className="subject-item">
               <div className="subject-icon">🔢</div>
-              <h3>Mathematics</h3>
-              <p>Numbers & Problem Solving</p>
+              <h3>{t.subjectsSection.maths}</h3>
+              <p>{t.subjectsSection.mathsDesc}</p>
             </div>
             <div className="subject-item">
               <div className="subject-icon">🔬</div>
-              <h3>Science</h3>
-              <p>Basic Concepts & Experiments</p>
+              <h3>{t.subjectsSection.science}</h3>
+              <p>{t.subjectsSection.scienceDesc}</p>
             </div>
             <div className="subject-item">
               <div className="subject-icon">🏛️</div>
-              <h3>Social Studies</h3>
-              <p>History, Geography & Civics</p>
+              <h3>{t.subjectsSection.socialStudies}</h3>
+              <p>{t.subjectsSection.socialStudiesDesc}</p>
             </div>
             <div className="subject-item">
               <div className="subject-icon">🇮🇳</div>
-              <h3>Hindi</h3>
-              <p>Language Skills & Literature</p>
+              <h3>{t.subjectsSection.hindi}</h3>
+              <p>{t.subjectsSection.hindiDesc}</p>
             </div>
             <div className="subject-item">
               <div className="subject-icon">🌱</div>
-              <h3>Environmental Studies</h3>
-              <p>Nature & Environment</p>
+              <h3>{t.subjectsSection.evs}</h3>
+              <p>{t.subjectsSection.evsDesc}</p>
             </div>
           </div>
         </div>
@@ -626,16 +545,16 @@ function App() {
       {/* Contact Section */}
       <section id="contact" className="contact">
         <div className="container">
-          <h2 className="section-title dark-background">Get In Touch</h2>
+          <h2 className="section-title dark-background">{t.contact.title}</h2>
           <p className="section-description dark-background">
-            Ready to start your child's learning journey? Reach out today!
+            {t.contact.description}
           </p>
           <div className="contact-content">
             <img src={logoImage} alt="Gyaan Pathshala" className="contact-logo" />
             <div>
-              <h3 className="contact-cta-heading">Ready to Join?</h3>
+              <h3 className="contact-cta-heading">{t.contact.readyToJoin}</h3>
               <p className="contact-cta-subtext">
-                Give your child the best start in their educational journey.
+                {t.contact.subtext}
               </p>
             </div>
             <div className="contact-buttons">
@@ -644,14 +563,14 @@ function App() {
                 className="contact-btn-whatsapp"
               >
                 <img src={whatsappIcon} width="24" height="24" alt="" />
-                WhatsApp Us
+                {t.contact.whatsappUs}
               </a>
               <a href="tel:+919998810310" className="contact-btn-phone">
-                📞 Call +91-9998810310
+                📞 {t.contact.callUs}
               </a>
             </div>
             <p className="contact-teacher">
-              Speak with <strong>Bina Tejura</strong>, Lead Educator
+              {t.contact.speakWith} <strong>Bina Tejura</strong>, {t.contact.leadEducator}
             </p>
           </div>
         </div>
@@ -668,34 +587,33 @@ function App() {
                 className="footer-logo"
               />
               <h3>Gyaan Pathshala</h3>
-              <p>Learn Better, Achieve More</p>
+              <p>{t.footer.tagline}</p>
               <p className="footer-tagline">
-                Nurturing young minds for over 12 years with dedication and
-                excellence.
+                {t.footer.nurturing}
               </p>
             </div>
 
             <div className="footer-links">
-              <h4>Quick Links</h4>
-              <button onClick={() => scrollToSection("about")}>About</button>
+              <h4>{t.footer.quickLinks}</h4>
+              <button onClick={() => scrollToSection("about")}>{t.nav.about}</button>
               <button onClick={() => scrollToSection("features")}>
-                Features
+                {t.nav.features}
               </button>
               <button onClick={() => scrollToSection("subjects")}>
-                Subjects
+                {t.nav.subjects}
               </button>
               <button onClick={() => scrollToSection("contact")}>
-                Contact
+                {t.nav.contact}
               </button>
             </div>
 
             <div className="footer-contact">
-              <h4>Contact</h4>
+              <h4>{t.footer.contact}</h4>
               <p>+91-9998810310</p>
-              <p>12+ Years Experience</p>
+              <p>{t.footer.yearsExp}</p>
               <div className="footer-social">
                 <a href="https://www.instagram.com/gyaan.pathshala/" target="_blank" rel="noopener noreferrer">
-                  Instagram
+                  {t.footer.instagram}
                 </a>
               </div>
             </div>
@@ -703,7 +621,7 @@ function App() {
 
           <div className="footer-bottom">
             <p>
-              © 2024 Gyaan Pathshala. All rights reserved. | Designed with ❤️
+              {t.footer.copyright} | Designed with ❤️
               for better education
             </p>
           </div>
@@ -716,10 +634,10 @@ function App() {
           href="https://wa.me/+919998810310/?text='Hi! I want to inquire about tuition with Gyaan Pathshala. What is the best time to call you?'"
           className="sticky-cta-whatsapp"
         >
-          WhatsApp
+          {t.sticky.whatsapp}
         </a>
         <a href="tel:+919998810310" className="sticky-cta-phone">
-          📞 Call Now
+          📞 {t.sticky.callNow}
         </a>
       </div>
 
