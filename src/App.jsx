@@ -316,7 +316,7 @@ function App() {
               </div>
               <div className="hero-differentiators">
                 <div className="hero-diff-item">
-                  <span className="hero-diff-number">1:8</span>
+                  <span className="hero-diff-number">1:5</span>
                   <span className="hero-diff-label">
                     {t.hero.teacherStudentRatio}
                   </span>
@@ -362,7 +362,7 @@ function App() {
               <div className="stat-icon">
                 <Target size={32} />
               </div>
-              <div className="stat-number">1:8</div>
+              <div className="stat-number">1:5</div>
               <div className="stat-label">{t.stats.teacherStudentRatio}</div>
             </div>
           </div>
