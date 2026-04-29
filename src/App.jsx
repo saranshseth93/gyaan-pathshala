@@ -34,66 +34,12 @@ function App() {
   }, []);
 
   const carouselImages = [
-    {
-      src: carousel1,
-      alt: "Classroom learning",
-      caption: "Personalized Attention to every child",
-      title: "Experience Quality Learning",
-      subtitle: "at Gyaan Pathshala",
-      description:
-        "Join hundreds of students who have transformed their academic journey with our personalized approach to learning.",
-      ctaText: "Start Your Child's Success Story",
-    },
-    {
-      src: carousel2,
-      alt: "Teacher helping student",
-      caption: "Expert Faculty with 12+ Years of Experience",
-      title: "Expert Teachers, Proven Results",
-      subtitle: "Guiding Every Step",
-      description:
-        "Our experienced faculty ensures every child gets the support they need to excel.",
-      ctaText: "Launch Your Child's Path to Achievement",
-    },
-    {
-      src: carousel3,
-      alt: "Student group activity",
-      caption: "Interactive Learning with Phonics",
-      title: "Learning Beyond Books",
-      subtitle: "Fun & Interactive Sessions",
-      description:
-        "Engage in activities that make learning enjoyable and memorable.",
-      ctaText: "Set Your Child on the Road to Success",
-    },
-    {
-      src: carousel4,
-      alt: "Creative classroom activities",
-      caption: "Creative Exploration for the child",
-      title: "Unleash Creativity in Every Child",
-      subtitle: "Hands-On Learning Experiences",
-      description:
-        "Our curriculum encourages creativity and critical thinking through engaging, hands-on activities.",
-      ctaText: "Ignite Your Child's Success Story",
-    },
-    {
-      src: carousel5,
-      alt: "Celebrating student achievements",
-      caption: "Celebrating Success",
-      title: "Recognizing Every Achievement",
-      subtitle: "Motivation Through Celebration",
-      description:
-        "We celebrate every milestone, big or small, to keep students motivated and confident.",
-      ctaText: "Begin Your Child's Journey to Success",
-    },
-    {
-      src: carousel6,
-      alt: "Safe and friendly environment",
-      caption: "Safe & Supportive Environment",
-      title: "A Safe Place to Grow and Learn",
-      subtitle: "Supportive Environment for All",
-      description:
-        "Our safe and nurturing environment ensures every child feels valued and supported.",
-      ctaText: "Open the Door to Your Child's Success",
-    },
+    { src: carousel1, alt: "Teacher giving personalized attention to a child", caption: "Personalized attention for every child" },
+    { src: carousel2, alt: "Experienced teacher guiding students", caption: "12+ years of teaching experience" },
+    { src: carousel3, alt: "Students learning through interactive activities", caption: "Learning through phonics and activities" },
+    { src: carousel4, alt: "Creative hands-on classroom activities", caption: "Hands-on creative exploration" },
+    { src: carousel5, alt: "Celebrating student achievements together", caption: "Celebrating every milestone" },
+    { src: carousel6, alt: "Safe and supportive learning environment", caption: "A safe place to grow and learn" },
   ];
 
   const scrollToSection = (sectionId) => {
@@ -261,8 +207,8 @@ function App() {
         )}
       </nav>
 
-      {/* Hero Carousel Section */}
-      <section className="hero-carousel" aria-label="Image carousel showcasing Gyaan Pathshala">
+      {/* Hero Carousel */}
+      <section className="hero-carousel" aria-label="Photos from Gyaan Pathshala">
         <div className="carousel-wrapper-fullwidth">
           <div
             className="carousel-track"
@@ -275,39 +221,31 @@ function App() {
                   alt={image.alt}
                   className="carousel-image-fullwidth"
                 />
-                <div className="carousel-overlay-clean">
-                  <div className="carousel-content-clean">
-                    <h1 className="carousel-title-clean">{image.title}</h1>
-                    <h2 className="carousel-subtitle-clean">
-                      {image.subtitle}
-                    </h2>
-                    <p className="carousel-description-clean">
-                      {image.description}
-                    </p>
-                    <button
-                      onClick={() => scrollToSection("contact")}
-                      className="carousel-cta-clean"
-                    >
-                      {image.ctaText}
-                    </button>
-                  </div>
-                  <div className="carousel-caption-clean">{image.caption}</div>
-                </div>
               </div>
             ))}
           </div>
         </div>
-        <div className="carousel-dots-clean">
-          {carouselImages.map((_, index) => (
-            <button
-              key={index}
-              className={`carousel-dot-clean ${
-                index === activeCarouselSlide ? "active" : ""
-              }`}
-              aria-label={`Go to slide ${index + 1}`}
-              onClick={() => setActiveCarouselSlide(index)}
-            />
-          ))}
+        {/* Bottom bar: caption + dots + CTA */}
+        <div className="carousel-bottom">
+          <p className="carousel-caption">{carouselImages[activeCarouselSlide].caption}</p>
+          <div className="carousel-controls">
+            <div className="carousel-dots">
+              {carouselImages.map((_, index) => (
+                <button
+                  key={index}
+                  className={`carousel-dot ${index === activeCarouselSlide ? "active" : ""}`}
+                  aria-label={`Go to slide ${index + 1}`}
+                  onClick={() => setActiveCarouselSlide(index)}
+                />
+              ))}
+            </div>
+            <a
+              href="https://wa.me/+919998810310/?text='Hi! I want to inquire about tuition with Gyaan Pathshala. What is the best time to call you?'"
+              className="carousel-cta"
+            >
+              Enquire Now
+            </a>
+          </div>
         </div>
       </section>
 
