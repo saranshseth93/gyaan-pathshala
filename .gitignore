@@ -38,3 +38,4 @@ Desktop.ini
 *.png
 !src/**/*.png
 !public/**/*.png
+.vercel
