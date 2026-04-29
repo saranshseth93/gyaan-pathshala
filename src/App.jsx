@@ -667,27 +667,20 @@ function App() {
         <div className="container">
           <h2 className="section-title dark-background">What Parents Say</h2>
           <div className="testimonial-container">
-            <div className="testimonial-content">
-              <div className="stars">
-                {"⭐".repeat(testimonials[activeTestimonial].rating)}
-              </div>
-              <p className="testimonial-text">
-                "{testimonials[activeTestimonial].content}"
-              </p>
-              <div className="testimonial-author">
-                <h4>{testimonials[activeTestimonial].name}</h4>
-                <p>{testimonials[activeTestimonial].role}</p>
-              </div>
-            </div>
-            <div className="testimonial-dots">
-              {testimonials.map((_, index) => (
-                <button
-                  key={index}
-                  onClick={() => setActiveTestimonial(index)}
-                  className={`dot ${
-                    index === activeTestimonial ? "active" : ""
-                  }`}
-                />
+            <div className="testimonial-scroll">
+              {testimonials.map((testimonial, index) => (
+                <div key={index} className="testimonial-card">
+                  <div className="stars">
+                    {"⭐".repeat(testimonial.rating)}
+                  </div>
+                  <p className="testimonial-text">
+                    "{testimonial.content}"
+                  </p>
+                  <div className="testimonial-author">
+                    <h4>{testimonial.name}</h4>
+                    <p>{testimonial.role}</p>
+                  </div>
+                </div>
               ))}
             </div>
           </div>
