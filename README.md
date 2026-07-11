@@ -154,14 +154,31 @@ Logo: `logo.svg`
 
 ## 🚀 Deployment
 
-The website is optimized for deployment on:
+The site is deployed on **Cloudflare Pages** (free tier), which auto-deploys on every push to `main`.
 
-- Vercel
-- Netlify
-- GitHub Pages
-- Any static hosting service
+### Cloudflare Pages setup (Git integration)
 
-Simply run `npm run build` and upload the `dist/` folder.
+1. In the Cloudflare dashboard, go to **Workers & Pages → Create → Pages → Connect to Git** and select this repository.
+2. Configure the build:
+   - **Framework preset:** Vite (or None)
+   - **Build command:** `npm run build`
+   - **Build output directory:** `dist`
+   - **Environment variable:** `NPM_FLAGS=--legacy-peer-deps` (React 19 needs legacy peer deps to install)
+3. Save and deploy. Every push to `main` triggers a new production deploy; other branches get preview deploys.
+
+The repo already includes the needed config:
+
+- `wrangler.toml` — sets the build output directory
+- `public/_redirects` — SPA fallback so all routes serve `index.html`
+- `public/_headers` — long-lived caching for hashed assets + basic security headers
+
+### Custom domain
+
+Add `gyaanpathshala.com` under the Pages project → **Custom domains**. If DNS is managed in Cloudflare, records are created for you; otherwise point a CNAME at the project's `*.pages.dev` hostname.
+
+### Any static host
+
+The output is a plain static bundle — run `npm run build` and upload the `dist/` folder to any static host.
 
 ## 📄 License
 

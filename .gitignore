@@ -38,4 +38,6 @@ Desktop.ini
 *.png
 !src/**/*.png
 !public/**/*.png
-.vercel
+
+# cloudflare
+.wrangler/

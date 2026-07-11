@@ -4,7 +4,7 @@ This file provides guidance to Claude Code (claude.ai/code) when working with co
 
 ## Project Overview
 
-Gyaan Pathshala — a single-page multilingual marketing website for a tuition center in Paldi, Ahmedabad, India (Nursery to Class 7). Supports English, Hindi, and Gujarati. Deployed via Vercel on push to `main`.
+Gyaan Pathshala — a single-page multilingual marketing website for a tuition center in Paldi, Ahmedabad, India (Nursery to Class 7). Supports English, Hindi, and Gujarati. Deployed via Cloudflare Pages on push to `main`.
 
 ## Commands
 
@@ -13,7 +13,7 @@ Gyaan Pathshala — a single-page multilingual marketing website for a tuition c
 - `npm run lint` — ESLint
 - `npm run preview` — preview production build
 
-Package manager specified as pnpm in package.json but use npm for consistency. Vercel uses `npm install --legacy-peer-deps` (configured in vercel.json).
+Package manager specified as pnpm in package.json but use npm for consistency. Cloudflare Pages build uses `npm install --legacy-peer-deps` (set in the project's build settings — see Deployment).
 
 ## Architecture
 
@@ -53,4 +53,16 @@ Package manager specified as pnpm in package.json but use npm for consistency. V
 
 ## Deployment
 
-Vercel auto-deploys on push to `main`. Config in `vercel.json` (Vite framework, `dist/` output). Domain `gyaanpathshala.com` needs DNS pointed to Vercel (A record: 76.76.21.21, CNAME: cname.vercel-dns.com).
+Cloudflare Pages auto-deploys on push to `main` (free tier). The Pages project is connected to this GitHub repo via Cloudflare's Git integration.
+
+**Build settings** (Cloudflare dashboard → Workers & Pages → the project → Settings → Build):
+- Build command: `npm run build`
+- Build output directory: `dist`
+- Install command: `npm install --legacy-peer-deps` (React 19 requires `--legacy-peer-deps`; set via a `NPM_FLAGS=--legacy-peer-deps` env var, or an install command override where available)
+
+**Repo config:**
+- `wrangler.toml` — declares `pages_build_output_dir = "dist"`
+- `public/_redirects` — SPA fallback (`/*  /index.html  200`), copied to `dist/` on build
+- `public/_headers` — asset caching + basic security headers
+
+**Custom domain:** Add `gyaanpathshala.com` under the Pages project → Custom domains. If the domain's DNS is managed in Cloudflare, records are created automatically. Otherwise point a CNAME to the `*.pages.dev` hostname (or the apex/A record Cloudflare provides).
